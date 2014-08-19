@@ -14,7 +14,7 @@ def configuration(parent_package='', top_path=None):
 
 
 
-    for module in ["_tree", "_sklearn_tree", "_sklearn_util"]:
+    for module in ["_tree", "_sklearn_tree", "_sklearn_utils"]:
         config.add_extension(module,
                              sources=["%s.c" % module],
                              include_dirs=[numpy.get_include()],

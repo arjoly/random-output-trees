@@ -4,6 +4,8 @@
 
 import sys
 import os
+import shutil
+from distutils.command.clean import clean as Clean
 
 DISTNAME = 'randomized-output-forest'
 DESCRIPTION = "High dimension output tree classifier and regressor"
@@ -16,7 +18,7 @@ DOWNLOAD_URL = 'TODO'
 CLASSIFIERS = [
     'Intended Audience :: Science/Research',
     'Intended Audience :: Developers',
-    'License :: OSI Approved',
+    # 'License :: OSI Approved', # TODO
     'Programming Language :: C',
     'Programming Language :: Python',
     'Topic :: Software Development',
@@ -30,9 +32,26 @@ CLASSIFIERS = [
 import randomized_output_forest
 VERSION = randomized_output_forest.__version__
 
-
 import setuptools  # we are using a setuptools namespace
 from numpy.distutils.core import setup
+
+class CleanCommand(Clean):
+    description = "Remove build directories, and compiled file in the source tree"
+
+    def run(self):
+        Clean.run(self)
+        if os.path.exists('build'):
+            shutil.rmtree('build')
+        for dirpath, dirnames, filenames in os.walk('randomized_output_forest'):
+            for filename in filenames:
+                if (filename.endswith('.so') or filename.endswith('.pyd')
+                             or filename.endswith('.dll')
+                             or filename.endswith('.pyc')):
+                    os.unlink(os.path.join(dirpath, filename))
+            for dirname in dirnames:
+                if dirname == '__pycache__':
+                    shutil.rmtree(os.path.join(dirpath, dirname))
+
 
 def configuration(parent_package='', top_path=None):
     if os.path.exists('MANIFEST'):
@@ -65,5 +84,6 @@ if __name__ == "__main__":
           download_url=DOWNLOAD_URL,
           long_description=LONG_DESCRIPTION,
           zip_safe=False, # the package can run out of an .egg file
-          classifiers=CLASSIFIERS
+          classifiers=CLASSIFIERS,
+          cmdclass={'clean': CleanCommand},
     )
