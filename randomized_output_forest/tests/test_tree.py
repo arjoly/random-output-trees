@@ -1,10 +1,6 @@
 """
 Testing for the tree module.
 """
-import pickle
-import numpy as np
-
-from itertools import product
 from functools import partial
 
 from sklearn import datasets
@@ -12,19 +8,10 @@ from sklearn.cross_validation import train_test_split
 
 from sklearn.decomposition import PCA
 
-from sklearn.metrics import accuracy_score
-from sklearn.metrics import mean_squared_error
 
 from sklearn.utils.testing import assert_array_equal
-from sklearn.utils.testing import assert_array_almost_equal
 from sklearn.utils.testing import assert_almost_equal
 from sklearn.utils.testing import assert_equal
-from sklearn.utils.testing import assert_raises
-from sklearn.utils.testing import assert_greater
-from sklearn.utils.testing import assert_less
-from sklearn.utils.testing import raises
-
-
 
 from randomized_output_forest.tree import DecisionTreeClassifier
 from randomized_output_forest.tree import DecisionTreeRegressor
