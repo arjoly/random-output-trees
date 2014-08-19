@@ -446,6 +446,7 @@ cdef class SplitterTransformer(Splitter):
         return (SplitterTransformer, (self.criterion,
                                       self.max_features,
                                       self.min_samples_leaf,
+                                      self.min_weight_leaf,
                                       self.random_state), self.__getstate__())
 
     def __dealloc__(self):

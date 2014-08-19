@@ -17,7 +17,7 @@ import numbers
 import numpy as np
 from abc import ABCMeta, abstractmethod
 
-from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin
+from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin, clone
 from sklearn.externals import six
 from sklearn.externals.six.moves import xrange
 from sklearn.feature_selection.from_model import _LearntSelectorMixin
@@ -46,9 +46,11 @@ from ._sklearn_tree import Splitter
 from ._sklearn_tree import BestSplitter
 from ._sklearn_tree import PresortBestSplitter
 from ._sklearn_tree import RandomSplitter
+from ._tree import SplitterTransformer
+from ._tree import VarianceCriterion
 
 
-CRITERIA_CLF = {"gini": Gini, "entropy": Entropy}
+CRITERIA_CLF = {"gini": Gini, "entropy": Entropy, "variance": VarianceCriterion}
 CRITERIA_REG = {"mse": MSE, "friedman_mse": FriedmanMSE}
 SPLITTERS = {"best": BestSplitter,
              "presort-best": PresortBestSplitter,
@@ -77,7 +79,8 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
                  min_weight_fraction_leaf,
                  max_features,
                  max_leaf_nodes,
-                 random_state):
+                 random_state,
+                 output_transformer):
         self.criterion = criterion
         self.splitter = splitter
         self.max_depth = max_depth
@@ -87,6 +90,7 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
         self.max_features = max_features
         self.random_state = random_state
         self.max_leaf_nodes = max_leaf_nodes
+        self.output_transformer = output_transformer
 
         self.n_features_ = None
         self.n_outputs_ = None
@@ -258,6 +262,42 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
                                                 self.min_samples_leaf,
                                                 min_weight_leaf,
                                                 random_state)
+
+        #### Added to have transform output spcace
+        if self.output_transformer:
+            self.output_transformer_ = clone(self.output_transformer)
+
+            # Set a random_state to the transformer, if it's not already set
+            if (hasattr(self.output_transformer_, 'random_state') and
+                    self.output_transformer_.random_state is None):
+                try:
+
+                    self.output_transformer_.set_params(
+                        random_state=self.random_state)
+                except ValueError:
+                    # Sub class might not have a random_state, but super class
+                    # have
+                    pass
+
+            y_transf = self.output_transformer_.fit_transform(y)
+            if y_transf.ndim == 1:
+                # reshape is necessary to preserve the data contiguity against vs
+                # [:, np.newaxis] that does not.
+                y_transf = y_transf.reshape((-1, 1))
+
+            if (y_transf.dtype != DOUBLE or not y_transf.flags.contiguous):
+                y_transf = np.ascontiguousarray(y_transf, dtype=DOUBLE)
+
+            base_splitter = splitter
+
+            splitter = SplitterTransformer(criterion,
+                                           self.max_features_,
+                                           self.min_samples_leaf,
+                                           min_weight_leaf,
+                                           random_state)
+            splitter.set_output_space(base_splitter, y_transf)
+
+        #### ---
 
         self.tree_ = Tree(self.n_features_, self.n_classes_, self.n_outputs_)
 
@@ -481,7 +521,8 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
                  min_weight_fraction_leaf=0.,
                  max_features=None,
                  random_state=None,
-                 max_leaf_nodes=None):
+                 max_leaf_nodes=None,
+                 output_transformer=None):
         super(DecisionTreeClassifier, self).__init__(
             criterion=criterion,
             splitter=splitter,
@@ -491,7 +532,8 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
             min_weight_fraction_leaf=min_weight_fraction_leaf,
             max_features=max_features,
             max_leaf_nodes=max_leaf_nodes,
-            random_state=random_state)
+            random_state=random_state,
+            output_transformer=output_transformer)
 
     def predict_proba(self, X):
         """Predict class probabilities of the input samples X.
@@ -683,7 +725,8 @@ class DecisionTreeRegressor(BaseDecisionTree, RegressorMixin):
                  min_weight_fraction_leaf=0.,
                  max_features=None,
                  random_state=None,
-                 max_leaf_nodes=None):
+                 max_leaf_nodes=None,
+                 output_transformer=None):
         super(DecisionTreeRegressor, self).__init__(
             criterion=criterion,
             splitter=splitter,
@@ -693,4 +736,5 @@ class DecisionTreeRegressor(BaseDecisionTree, RegressorMixin):
             min_weight_fraction_leaf=min_weight_fraction_leaf,
             max_features=max_features,
             max_leaf_nodes=max_leaf_nodes,
-            random_state=random_state)
+            random_state=random_state,
+            output_transformer=output_transformer)
