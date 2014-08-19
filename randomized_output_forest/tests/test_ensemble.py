@@ -23,6 +23,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.random_projection import GaussianRandomProjection
 from sklearn.base import BaseEstimator, TransformerMixin
 
+from randomized_output_forest.transformer import FixedStateTransformer
 
 from randomized_output_forest.ensemble import ExtraTreesClassifier
 from randomized_output_forest.ensemble import ExtraTreesRegressor
@@ -86,7 +87,7 @@ def test_output_transformer():
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 
     # Check that random_state are different
-    transformer = GaussianRandomProjection(n_components=10, random_state=None)
+    transformer = GaussianRandomProjection(n_components=5, random_state=None)
     for name, ForestEstimator in FOREST_ESTIMATORS.items():
         est = ForestEstimator(random_state=5, output_transformer=transformer)
         est.fit(X_train, y_train)
@@ -100,7 +101,8 @@ def test_output_transformer():
 
 
     # Check that random_state are equals
-    transformer = GaussianRandomProjection(n_components=10, random_state=0)
+    transformer = FixedStateTransformer(GaussianRandomProjection(
+        n_components=5), random_seed=0)
     for name, ForestEstimator in FOREST_ESTIMATORS.items():
         est = ForestEstimator(random_state=5, output_transformer=transformer)
         est.fit(X_train, y_train)
@@ -112,6 +114,7 @@ def test_output_transformer():
                         for sub in est.estimators_]
 
         assert_equal(len(set(random_state)), 1)
+        assert_equal(random_state[0], 0)
 
 
 def test_identity_output_transformer():

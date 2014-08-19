@@ -269,16 +269,14 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
             self.output_transformer_ = clone(self.output_transformer)
 
             # Set a random_state to the transformer, if it's not already set
-            if (hasattr(self.output_transformer_, 'random_state') and
-                    self.output_transformer_.random_state is None):
-                try:
+            try:
 
-                    self.output_transformer_.set_params(
-                        random_state=check_random_state(self.random_state))
-                except ValueError:
-                    # Sub class might not have a random_state, but super class
-                    # have
-                    pass
+                self.output_transformer_.set_params(
+                    random_state=check_random_state(self.random_state))
+            except ValueError:
+                # Sub class might not have a random_state, but super class
+                # have
+                pass
 
             y_transf = self.output_transformer_.fit_transform(y)
             if y_transf.ndim == 1:
