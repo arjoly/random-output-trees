@@ -18,8 +18,8 @@ from libc.string cimport memcpy, memset
 from libc.math cimport log as ln
 from cpython cimport Py_INCREF, PyObject
 
-from ._sklearn_utils cimport Stack, StackRecord
-from ._sklearn_utils cimport PriorityHeap, PriorityHeapRecord
+from randomized_output_forest._sklearn_utils cimport Stack, StackRecord
+from randomized_output_forest._sklearn_utils cimport PriorityHeap, PriorityHeapRecord
 
 import numpy as np
 cimport numpy as np
