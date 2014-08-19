@@ -431,16 +431,13 @@ cdef class SplitterTransformer(Splitter):
     cdef DOUBLE_t* y_transformed_data      # Storage of transformed output
     cdef SIZE_t y_transformed_stride  # Stride of transformed output
 
-    cdef SIZE_t is_classification
-    cdef SIZE_t* n_classes
-    cdef SIZE_t label_count_stride
-    cdef SIZE_t n_outputs
 
     def __getstate__(self):
-        return {}
+        return {"splitter": self.splitter,
+                "y_transformed": self.y_transformed}
 
     def __setstate__(self, d):
-        pass
+        self.set_output_space(d["splitter"], d["y_transformed"])
 
     def __reduce__(self):
         return (SplitterTransformer, (self.criterion,
@@ -449,14 +446,10 @@ cdef class SplitterTransformer(Splitter):
                                       self.min_weight_leaf,
                                       self.random_state), self.__getstate__())
 
-    def __dealloc__(self):
-        """Destructor."""
-        free(self.n_classes)
 
     def set_output_space(self,
                          Splitter splitter,
                          np.ndarray[DOUBLE_t, ndim=2,  mode="c"] y):
-        #TODO fix serialization
 
         # Set transformed output space
         self.y_transformed = y
