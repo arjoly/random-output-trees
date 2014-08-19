@@ -99,6 +99,7 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
 
         self.tree_ = None
         self.max_features_ = None
+        self.output_transformer_ = None
 
     def fit(self, X, y, sample_weight=None, check_input=True):
         """Build a decision tree from the training set (X, y).
@@ -264,7 +265,7 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
                                                 random_state)
 
         #### Added to have transform output spcace
-        if self.output_transformer:
+        if self.output_transformer is not None:
             self.output_transformer_ = clone(self.output_transformer)
 
             # Set a random_state to the transformer, if it's not already set
@@ -273,7 +274,7 @@ class BaseDecisionTree(six.with_metaclass(ABCMeta, BaseEstimator,
                 try:
 
                     self.output_transformer_.set_params(
-                        random_state=self.random_state)
+                        random_state=check_random_state(self.random_state))
                 except ValueError:
                     # Sub class might not have a random_state, but super class
                     # have

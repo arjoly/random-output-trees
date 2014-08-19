@@ -470,7 +470,7 @@ cdef class SplitterTransformer(Splitter):
 
     cdef void init(self, np.ndarray[DTYPE_t, ndim=2] X,
                          np.ndarray[DOUBLE_t, ndim=2, mode="c"] y,
-                         DOUBLE_t* sample_weight):
+                         DOUBLE_t* sample_weight) except *:
         """Initialize the splitter."""
 
         if not self.splitter:
