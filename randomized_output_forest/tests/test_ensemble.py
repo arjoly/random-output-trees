@@ -768,8 +768,6 @@ class IdentityProjections(BaseEstimator, TransformerMixin):
         return X
 
 
-
-
 def test_output_transformer():
     X, y = datasets.make_multilabel_classification(return_indicator=True)
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
@@ -817,9 +815,6 @@ def test_identity_output_transformer():
         est_transf = est.set_params(output_transformer=IdentityProjections())
         est_transf.fit(X_train, y_train)
         y_pred_transformed = est_transf.predict(X_test)
-        print name
-        print y_pred_origin
-        print y_pred_transformed
         assert_almost_equal(y_pred_origin, y_pred_transformed)
 
 
