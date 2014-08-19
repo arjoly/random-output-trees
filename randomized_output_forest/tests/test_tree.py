@@ -81,9 +81,7 @@ def test_identity_output_transformer():
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
     transformer = IdentityProjection()
 
-    for name, TreeEstimator in {
-            "DecisionTreeClassifier": DecisionTreeClassifier,
-            "DecisionTreeRegressor": DecisionTreeRegressor}.items():
+    for name, TreeEstimator in ALL_TREES.items():
         est = TreeEstimator(random_state=0, max_features=None)
         est.fit(X_train, y_train)
         y_pred_origin = est.predict(X_test)
@@ -102,9 +100,7 @@ def test_pca_output_transformer():
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
     transformer = PCA(n_components=1)
 
-    for name, TreeEstimator in {
-            "DecisionTreeClassifier": DecisionTreeClassifier,
-            "DecisionTreeRegressor": DecisionTreeRegressor}.items():
+    for name, TreeEstimator in ALL_TREES.items():
         est_transf = TreeEstimator(random_state=0,
                                    max_features=None,
                                    output_transformer=transformer)
