@@ -55,3 +55,8 @@ target/
 # Cython
 cython_debug/
 .DS_Store
+
+
+doc/_build/
+doc/auto_examples/
+doc/generated/
