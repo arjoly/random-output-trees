@@ -1,3 +1,3 @@
-/randomized_output_forest/_tree.c -diff
-/randomized_output_forest/_sklearn_tree.c -diff
-/randomized_output_forest/_sklearn_tree_utils.c -diff
+/random_output_trees/_tree.c -diff
+/random_output_trees/_sklearn_tree.c -diff
+/random_output_trees/_sklearn_tree_utils.c -diff

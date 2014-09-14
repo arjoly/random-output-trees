@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# randomized_output_forest documentation build configuration file, created by
+# random_output_trees documentation build configuration file, created by
 # sphinx-quickstart on Wed Aug 20 10:22:49 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -69,7 +69,7 @@ plot_gallery = True
 master_doc = 'index'
 
 # General information about the project.
-project = u'randomized_output_forest'
+project = u'random_output_trees'
 copyright = u'2014, Arnaud Joly'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -202,7 +202,7 @@ html_show_sphinx = False
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'randomized_output_forestdoc'
+htmlhelp_basename = 'random_output_treesdoc'
 
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.
@@ -285,7 +285,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', 'randomized_output_forest.tex', u'randomized\\_output\\_forest Documentation',
+  ('index', 'random_output_trees.tex', u'randomized\\_output\\_forest Documentation',
    u'Arnaud Joly', 'manual'),
 ]
 
@@ -315,7 +315,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'randomized_output_forest', u'randomized_output_forest Documentation',
+    ('index', 'random_output_trees', u'random_output_trees Documentation',
      [u'Arnaud Joly'], 1)
 ]
 
@@ -329,8 +329,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'randomized_output_forest', u'randomized_output_forest Documentation',
-   u'Arnaud Joly', 'randomized_output_forest', 'One line description of project.',
+  ('index', 'random_output_trees', u'random_output_trees Documentation',
+   u'Arnaud Joly', 'random_output_trees', 'One line description of project.',
    'Miscellaneous'),
 ]
 

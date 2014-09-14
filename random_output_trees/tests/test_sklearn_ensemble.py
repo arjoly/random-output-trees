@@ -33,10 +33,10 @@ from sklearn.svm import LinearSVC
 from sklearn.grid_search import GridSearchCV
 from sklearn.utils.validation import check_random_state
 
-from randomized_output_forest.ensemble import ExtraTreesClassifier
-from randomized_output_forest.ensemble import ExtraTreesRegressor
-from randomized_output_forest.ensemble import RandomForestClassifier
-from randomized_output_forest.ensemble import RandomForestRegressor
+from random_output_trees.ensemble import ExtraTreesClassifier
+from random_output_trees.ensemble import ExtraTreesRegressor
+from random_output_trees.ensemble import RandomForestClassifier
+from random_output_trees.ensemble import RandomForestRegressor
 
 # toy sample
 X = [[-2, -1], [-1, -1], [-1, -2], [1, 1], [1, 2], [2, 1]]

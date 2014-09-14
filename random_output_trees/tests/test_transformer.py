@@ -4,7 +4,7 @@ from sklearn.utils.testing import assert_equal
 from sklearn.utils import check_random_state
 
 from sklearn.random_projection import GaussianRandomProjection
-from randomized_output_forest.transformer import FixedStateTransformer
+from random_output_trees.transformer import FixedStateTransformer
 
 class IdentityProjection(BaseEstimator):
 

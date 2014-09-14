@@ -5,16 +5,16 @@ Reference
 This is the class and function reference of the package.
 
 
-:mod:`randomized_output_forest.tree`: Provide tree-based estimator
+:mod:`random_output_trees.tree`: Provide tree-based estimator
 ------------------------------------------------------------------
 
 This module provide tree-based estimators which worked transform output-space.
 
-.. automodule:: randomized_output_forest.tree
+.. automodule:: random_output_trees.tree
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: randomized_output_forest
+.. currentmodule:: random_output_trees
 
 .. autosummary::
    :toctree: generated/
@@ -24,16 +24,16 @@ This module provide tree-based estimators which worked transform output-space.
    tree.DecisionTreeRegressor
 
 
-:mod:`randomized_output_forest.ensemble`: Provide ensemble based estimator
+:mod:`random_output_trees.ensemble`: Provide ensemble based estimator
 --------------------------------------------------------------------------
 
 This module provide ensemble estimators which work transformed output-space.
 
-.. automodule:: randomized_output_forest.ensemble
+.. automodule:: random_output_trees.ensemble
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: randomized_output_forest
+.. currentmodule:: random_output_trees
 
 .. autosummary::
    :toctree: generated/
@@ -45,14 +45,14 @@ This module provide ensemble estimators which work transformed output-space.
    ensemble.ExtraTreesRegressor
 
 
-:mod:`randomized_output_forest.random_projection`: Dimensionality reduction methods based on random projection
+:mod:`random_output_trees.random_projection`: Dimensionality reduction methods based on random projection
 --------------------------------------------------------------------------------------------------------------
 
-.. automodule:: randomized_output_forest.random_projection
+.. automodule:: random_output_trees.random_projection
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: randomized_output_forest
+.. currentmodule:: random_output_trees
 
 .. autosummary::
    :toctree: generated/
@@ -64,14 +64,14 @@ This module provide ensemble estimators which work transformed output-space.
    random_projection.SampledIdentityProjection
 
 
-:mod:`randomized_output_forest.transformer`: Provides general purpose meta-transformer
+:mod:`random_output_trees.transformer`: Provides general purpose meta-transformer
 --------------------------------------------------------------------------------------
 
-.. automodule:: randomized_output_forest.transformer
+.. automodule:: random_output_trees.transformer
    :no-members:
    :no-inherited-members:
 
-.. currentmodule:: randomized_output_forest
+.. currentmodule:: random_output_trees
 
 .. autosummary::
    :toctree: generated/

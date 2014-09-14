@@ -9,13 +9,13 @@ from sklearn.utils.testing import assert_raise_message
 from sklearn.utils.testing import assert_array_equal
 from sklearn.utils.testing import assert_warns
 
-from randomized_output_forest.random_projection import RademacherRandomProjection
-from randomized_output_forest.random_projection import AchlioptasRandomProjection
-from randomized_output_forest.random_projection import SampledHadamardProjection
-from randomized_output_forest.random_projection import SampledIdentityProjection
+from random_output_trees.random_projection import RademacherRandomProjection
+from random_output_trees.random_projection import AchlioptasRandomProjection
+from random_output_trees.random_projection import SampledHadamardProjection
+from random_output_trees.random_projection import SampledIdentityProjection
 
-from randomized_output_forest.random_projection import subsampled_hadamard_matrix
-from randomized_output_forest.random_projection import subsampled_identity_matrix
+from random_output_trees.random_projection import subsampled_hadamard_matrix
+from random_output_trees.random_projection import subsampled_identity_matrix
 
 
 RANDOM_PROJECTION = {

@@ -9,7 +9,7 @@ def configuration(parent_package='', top_path=None):
     if os.name == 'posix':
         libraries.append('m')
 
-    config = Configuration('randomized_output_forest', parent_package,
+    config = Configuration('random_output_trees', parent_package,
                            top_path)
 
 

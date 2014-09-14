@@ -23,12 +23,11 @@ from sklearn.cross_validation import train_test_split
 from sklearn.random_projection import GaussianRandomProjection
 from sklearn.base import BaseEstimator, TransformerMixin
 
-from randomized_output_forest.transformer import FixedStateTransformer
-
-from randomized_output_forest.ensemble import ExtraTreesClassifier
-from randomized_output_forest.ensemble import ExtraTreesRegressor
-from randomized_output_forest.ensemble import RandomForestClassifier
-from randomized_output_forest.ensemble import RandomForestRegressor
+from random_output_trees.transformer import FixedStateTransformer
+from random_output_trees.ensemble import ExtraTreesClassifier
+from random_output_trees.ensemble import ExtraTreesRegressor
+from random_output_trees.ensemble import RandomForestClassifier
+from random_output_trees.ensemble import RandomForestRegressor
 
 
 # toy sample

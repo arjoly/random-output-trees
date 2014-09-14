@@ -13,8 +13,8 @@ from sklearn.utils.testing import assert_array_equal
 from sklearn.utils.testing import assert_almost_equal
 from sklearn.utils.testing import assert_equal
 
-from randomized_output_forest.tree import DecisionTreeClassifier
-from randomized_output_forest.tree import DecisionTreeRegressor
+from random_output_trees.tree import DecisionTreeClassifier
+from random_output_trees.tree import DecisionTreeRegressor
 
 from sklearn.random_projection import GaussianRandomProjection
 from sklearn.base import BaseEstimator, TransformerMixin

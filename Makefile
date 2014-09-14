@@ -11,7 +11,7 @@ inplace:
 	python setup.py build_ext --inplace
 
 test:
-	nosetests randomized_output_forest
+	nosetests random_output_trees
 
 doc: inplace
 	$(MAKE) -C doc html

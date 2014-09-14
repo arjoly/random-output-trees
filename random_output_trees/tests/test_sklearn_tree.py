@@ -23,8 +23,8 @@ from sklearn.utils.testing import assert_true
 from sklearn.utils.testing import raises
 from sklearn.utils.validation import check_random_state
 
-from randomized_output_forest.tree import DecisionTreeClassifier
-from randomized_output_forest.tree import DecisionTreeRegressor
+from random_output_trees.tree import DecisionTreeClassifier
+from random_output_trees.tree import DecisionTreeRegressor
 # from sklearn.tree import ExtraTreeClassifier
 # from sklearn.tree import ExtraTreeRegressor
 

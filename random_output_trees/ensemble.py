@@ -5,8 +5,8 @@
 from sklearn.ensemble.forest import ForestClassifier
 from sklearn.ensemble.forest import ForestRegressor
 
-from randomized_output_forest.tree import DecisionTreeClassifier
-from randomized_output_forest.tree import DecisionTreeRegressor
+from .tree import DecisionTreeClassifier
+from .tree import DecisionTreeRegressor
 
 __all__ = [
     "RandomForestClassifier",

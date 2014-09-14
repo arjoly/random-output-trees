@@ -7,7 +7,7 @@ import os
 import shutil
 from distutils.command.clean import clean as Clean
 
-DISTNAME = 'randomized-output-forest'
+DISTNAME = 'random-output-trees'
 DESCRIPTION = "High dimension output tree classifier and regressor"
 LONG_DESCRIPTION = open('README.rst').read()
 MAINTAINER = 'Arnaud Joly'
@@ -29,8 +29,8 @@ CLASSIFIERS = [
     'Operating System :: MacOS'
 ]
 
-import randomized_output_forest
-VERSION = randomized_output_forest.__version__
+import random_output_trees
+VERSION = random_output_trees.__version__
 
 import setuptools  # we are using a setuptools namespace
 from numpy.distutils.core import setup
@@ -42,7 +42,7 @@ class CleanCommand(Clean):
         Clean.run(self)
         if os.path.exists('build'):
             shutil.rmtree('build')
-        for dirpath, dirnames, filenames in os.walk('randomized_output_forest'):
+        for dirpath, dirnames, filenames in os.walk('random_output_trees'):
             for filename in filenames:
                 if (filename.endswith('.so') or filename.endswith('.pyd')
                              or filename.endswith('.dll')
@@ -60,7 +60,7 @@ def configuration(parent_package='', top_path=None):
     from numpy.distutils.misc_util import Configuration
     config = Configuration(None, parent_package, top_path)
 
-    config.add_subpackage('randomized_output_forest')
+    config.add_subpackage('random_output_trees')
 
     return config
 
