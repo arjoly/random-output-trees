@@ -7,9 +7,9 @@ randomized output space. The core tree implementation is based on scikit-learn
 
 If you use this package, please cite
 
-  Random forests with random projections of the output space for high
-  dimensional multi-label classification by
-  Arnaud Joly, Pierre Geurts and Louis Wehenkel
+  Joly, A., Geurts, P., & Wehenkel, L. (2014). Random forests with random
+  projections of the output space for high dimensional multi-label
+  classification.
 
 
 Dependencies
