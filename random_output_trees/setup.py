@@ -1,3 +1,7 @@
+# Authors: Arnaud Joly <arnaud.v.joly@gmail.com>
+#
+# License: BSD 3 clause
+
 import os
 
 

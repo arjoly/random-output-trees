@@ -1,3 +1,6 @@
+# Authors: Arnaud Joly <arnaud.v.joly@gmail.com>
+#
+# License: BSD 3 clause
 
 from sklearn.base import BaseEstimator
 from sklearn.base import clone

@@ -1,6 +1,8 @@
 #! /usr/bin/env python
 #
-# Copyright (C) 2012 Arnaud Joly
+# Author : Arnaud Joly
+#
+# License: BSD 3 clause
 
 import sys
 import os

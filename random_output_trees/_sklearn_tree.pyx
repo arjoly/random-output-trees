@@ -13,6 +13,10 @@
 #
 # Licence: BSD 3 clause
 
+# This file is taken from scikit-learn to allow easy installation
+# and not to rely on a specific version of scikit-learn decision tree
+# implementation
+
 from libc.stdlib cimport calloc, free, realloc
 from libc.string cimport memcpy, memset
 from libc.math cimport log as ln

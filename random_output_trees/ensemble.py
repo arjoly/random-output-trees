@@ -2,6 +2,9 @@
 #
 # License: BSD 3 clause
 
+# This file is adapted from scikit-learn to handle randomized output space
+
+
 from sklearn.ensemble.forest import ForestClassifier
 from sklearn.ensemble.forest import ForestRegressor
 

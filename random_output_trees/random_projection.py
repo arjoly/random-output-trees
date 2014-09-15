@@ -1,3 +1,7 @@
+# Authors: Arnaud Joly <arnaud.v.joly@gmail.com>
+#
+# License: BSD 3 clause
+
 import numpy as np
 
 from scipy.linalg import hadamard as sp_hadamard

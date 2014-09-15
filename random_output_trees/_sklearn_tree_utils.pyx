@@ -10,6 +10,11 @@
 
 from libc.stdlib cimport free, malloc, realloc
 
+
+# This file is taken from scikit-learn to allow easy installation
+# and not to rely on a specific version of scikit-learn decision tree
+# implementation
+
 # =============================================================================
 # Stack data structure
 # =============================================================================

@@ -11,6 +11,8 @@ randomized trees. Single and multi-output problems are both handled.
 #          Joly Arnaud <arnaud.v.joly@gmail.com>
 # Licence: BSD 3 clause
 
+# This file is adapted from scikit-learn to handle randomized output space
+
 from __future__ import division
 
 import numbers
