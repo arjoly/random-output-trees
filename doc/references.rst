@@ -1,6 +1,6 @@
-=========
-Reference
-=========
+==========
+References
+==========
 
 This is the class and function reference of the package.
 
