@@ -11,6 +11,7 @@ If you use this package, please cite
   projections of the output space for high dimensional multi-label
   classification.
 
+  ECML-PKDD 2014, Nancy, France
 
 Dependencies
 ------------
