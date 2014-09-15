@@ -1,10 +1,61 @@
-Random output tree
-==================
+Random output trees
+===================
+
+Random output trees is a python package to grow decision tree ensemble on
+randomized output space. The tree based implementation is based on scikit-learn
+0.15.2. All provided estimators and transformers are scikit-learn compatible.
+
+If you use this package, please cite
+
+  Random forests with random projections of the output space for high
+  dimensional multi-label classification by
+  Arnaud Joly, Pierre Geurts and Louis Wehenkel
 
 
-TODO list:
-    - write readme
-    - write doc
+Dependencies
+------------
+
+The required dependencies to build the software are Python >= 2.7,
+NumPy >= 1.6.2, SciPy >= 0.9, scikit-learn>=0.15.2 and a working C/C++
+compiler.
+
+For running the examples Matplotlib >= 1.1.1 is required and for running the
+tests you need nose >= 1.1.2.
+
+For making the documentation, Sphinx==1.2.2 and sphinx-bootstrap-theme==0.4.0
+are needed.
+
+
+Install
+-------
+
+This package uses distutils, which is the default way of installing
+python modules. To install in your home directory, use::
+
+  python setup.py install --user
+
+To install for all users on Unix/Linux::
+
+  python setup.py build
+  sudo python setup.py install
+
+
+Development
+-----------
+
+You can check the latest sources with the command::
+
+    git clone https://github.com/arjoly/random-output-trees
+
+or if you have write privileges::
+
+    git@github.com:arjoly/random-output-trees.git
+
+After installation, you can launch the test suite from outside the
+source directory (you will need to have the ``nose`` package installed)::
+
+   $ nosetests -v random_output_trees
+
 
 Licenses
 --------
