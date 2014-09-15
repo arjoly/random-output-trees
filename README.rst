@@ -2,7 +2,7 @@ Random output trees
 ===================
 
 Random output trees is a python package to grow decision tree ensemble on
-randomized output space. The tree based implementation is based on scikit-learn
+randomized output space. The core tree implementation is based on scikit-learn
 0.15.2. All provided estimators and transformers are scikit-learn compatible.
 
 If you use this package, please cite
