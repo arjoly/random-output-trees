@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>random_output_trees.tree.DecisionTreeClassifier &mdash; random_output_trees dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
+    <link rel="up" title="References" href="../references.html" />
+    <link rel="next" title="random_output_trees.tree.DecisionTreeRegressor" href="random_output_trees.tree.DecisionTreeRegressor.html" />
+    <link rel="prev" title="random_output_trees.transformer.FixedStateTransformer" href="random_output_trees.transformer.FixedStateTransformer.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Randommized output forest</a>
+        <span class="navbar-text navbar-version pull-left"><b>dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="../references.html">References</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container content-container">
+  
+  <div class="section" id="random-output-trees-tree-decisiontreeclassifier">
+<h1>random_output_trees.tree.DecisionTreeClassifier<a class="headerlink" href="#random-output-trees-tree-decisiontreeclassifier" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="random_output_trees.tree.DecisionTreeClassifier">
+<em class="property">class </em><tt class="descclassname">random_output_trees.tree.</tt><tt class="descname">DecisionTreeClassifier</tt><big>(</big><em>criterion='gini'</em>, <em>splitter='best'</em>, <em>max_depth=None</em>, <em>min_samples_split=2</em>, <em>min_samples_leaf=1</em>, <em>min_weight_fraction_leaf=0.0</em>, <em>max_features=None</em>, <em>random_state=None</em>, <em>max_leaf_nodes=None</em>, <em>output_transformer=None</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decision tree classifier.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>criterion</strong> : string, optional (default=&#8221;gini&#8221;)</p>
+<blockquote>
+<div><p>The function to measure the quality of a split. Supported criteria are
+&#8220;gini&#8221; for the Gini impurity and &#8220;entropy&#8221; for the information gain.</p>
+</div></blockquote>
+<p><strong>splitter</strong> : string, optional (default=&#8221;best&#8221;)</p>
+<blockquote>
+<div><p>The strategy used to choose the split at each node. Supported
+strategies are &#8220;best&#8221; to choose the best split and &#8220;random&#8221; to choose
+the best random split.</p>
+</div></blockquote>
+<p><strong>max_features</strong> : int, float, string or None, optional (default=None)</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>The number of features to consider when looking for the best split:</dt>
+<dd><ul class="first last simple">
+<li>If int, then consider <cite>max_features</cite> features at each split.</li>
+<li>If float, then <cite>max_features</cite> is a percentage and
+<cite>int(max_features * n_features)</cite> features are considered at each
+split.</li>
+<li>If &#8220;auto&#8221;, then <cite>max_features=sqrt(n_features)</cite>.</li>
+<li>If &#8220;sqrt&#8221;, then <cite>max_features=sqrt(n_features)</cite>.</li>
+<li>If &#8220;log2&#8221;, then <cite>max_features=log2(n_features)</cite>.</li>
+<li>If None, then <cite>max_features=n_features</cite>.</li>
+</ul>
+</dd>
+</dl>
+<p>Note: the search for a split does not stop until at least one
+valid partition of the node samples is found, even if it requires to
+effectively inspect more than <tt class="docutils literal"><span class="pre">max_features</span></tt> features.</p>
+</div></blockquote>
+<p><strong>max_depth</strong> : int or None, optional (default=None)</p>
+<blockquote>
+<div><p>The maximum depth of the tree. If None, then nodes are expanded until
+all leaves are pure or until all leaves contain less than
+min_samples_split samples.
+Ignored if <tt class="docutils literal"><span class="pre">max_samples_leaf</span></tt> is not None.</p>
+</div></blockquote>
+<p><strong>min_samples_split</strong> : int, optional (default=2)</p>
+<blockquote>
+<div><p>The minimum number of samples required to split an internal node.</p>
+</div></blockquote>
+<p><strong>min_samples_leaf</strong> : int, optional (default=1)</p>
+<blockquote>
+<div><p>The minimum number of samples required to be at a leaf node.</p>
+</div></blockquote>
+<p><strong>min_weight_fraction_leaf</strong> : float, optional (default=0.)</p>
+<blockquote>
+<div><p>The minimum weighted fraction of the input samples required to be at a
+leaf node.</p>
+</div></blockquote>
+<p><strong>max_leaf_nodes</strong> : int or None, optional (default=None)</p>
+<blockquote>
+<div><p>Grow a tree with <tt class="docutils literal"><span class="pre">max_leaf_nodes</span></tt> in best-first fashion.
+Best nodes are defined as relative reduction in impurity.
+If None then unlimited number of leaf nodes.
+If not None then <tt class="docutils literal"><span class="pre">max_depth</span></tt> will be ignored.</p>
+</div></blockquote>
+<p><strong>random_state</strong> : int, RandomState instance or None, optional (default=None)</p>
+<blockquote class="last">
+<div><p>If int, random_state is the seed used by the random number generator;
+If RandomState instance, random_state is the random number generator;
+If None, the random number generator is the RandomState instance used
+by <cite>np.random</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="random_output_trees.tree.DecisionTreeRegressor.html#random_output_trees.tree.DecisionTreeRegressor" title="random_output_trees.tree.DecisionTreeRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">DecisionTreeRegressor</span></tt></a></p>
+</div>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R5]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Decision_tree_learning">http://en.wikipedia.org/wiki/Decision_tree_learning</a></td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[R6]</a></td><td>L. Breiman, J. Friedman, R. Olshen, and C. Stone, &#8220;Classification
+and Regression Trees&#8221;, Wadsworth, Belmont, CA, 1984.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[R7]</a></td><td>T. Hastie, R. Tibshirani and J. Friedman. &#8220;Elements of Statistical
+Learning&#8221;, Springer, 2009.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[R8]</a></td><td>L. Breiman, and A. Cutler, &#8220;Random Forests&#8221;,
+<a class="reference external" href="http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm">http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm</a></td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">... </span>                            
+<span class="gp">...</span>
+<span class="go">array([ 1.     ,  0.93...,  0.86...,  0.93...,  0.93...,</span>
+<span class="go">        0.93...,  0.93...,  1.     ,  0.93...,  1.      ])</span>
+</pre></div>
+</div>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.feature_importances_" title="random_output_trees.tree.DecisionTreeClassifier.feature_importances_"><tt class="xref py py-obj docutils literal"><span class="pre">feature_importances_</span></tt></a></td>
+<td>Return the feature importances.</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="42%" />
+<col width="47%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a href="#id5"><span class="problematic" id="id6">tree_</span></a></td>
+<td>Tree object</td>
+<td>The underlying Tree object.</td>
+</tr>
+<tr class="row-even"><td><a href="#id7"><span class="problematic" id="id8">max_features_</span></a></td>
+<td>int,</td>
+<td>The infered value of max_features.</td>
+</tr>
+<tr class="row-odd"><td><a href="#id9"><span class="problematic" id="id10">classes_</span></a></td>
+<td>array of shape = [n_classes] or a list of such arrays</td>
+<td>The classes labels (single output problem),
+or a list of arrays of class labels (multi-output problem).</td>
+</tr>
+<tr class="row-even"><td><a href="#id11"><span class="problematic" id="id12">n_classes_</span></a></td>
+<td>int or list</td>
+<td>The number of classes (for single output problems),
+or a list containing the number of classes for each
+output (for multi-output problems).</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.fit" title="random_output_trees.tree.DecisionTreeClassifier.fit"><tt class="xref py py-obj docutils literal"><span class="pre">fit</span></tt></a>(X,&nbsp;y[,&nbsp;sample_weight,&nbsp;check_input])</td>
+<td>Build a decision tree from the training set (X, y).</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.fit_transform" title="random_output_trees.tree.DecisionTreeClassifier.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
+<td>Fit to data, then transform it.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.get_params" title="random_output_trees.tree.DecisionTreeClassifier.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
+<td>Get parameters for this estimator.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.predict" title="random_output_trees.tree.DecisionTreeClassifier.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(X)</td>
+<td>Predict class or regression value for X.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.predict_log_proba" title="random_output_trees.tree.DecisionTreeClassifier.predict_log_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_log_proba</span></tt></a>(X)</td>
+<td>Predict class log-probabilities of the input samples X.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.predict_proba" title="random_output_trees.tree.DecisionTreeClassifier.predict_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_proba</span></tt></a>(X)</td>
+<td>Predict class probabilities of the input samples X.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.score" title="random_output_trees.tree.DecisionTreeClassifier.score"><tt class="xref py py-obj docutils literal"><span class="pre">score</span></tt></a>(X,&nbsp;y[,&nbsp;sample_weight])</td>
+<td>Returns the mean accuracy on the given test data and labels.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.set_params" title="random_output_trees.tree.DecisionTreeClassifier.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
+<td>Set the parameters of this estimator.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.transform" title="random_output_trees.tree.DecisionTreeClassifier.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X[,&nbsp;threshold])</td>
+<td>Reduce X to its most important features.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>criterion='gini'</em>, <em>splitter='best'</em>, <em>max_depth=None</em>, <em>min_samples_split=2</em>, <em>min_samples_leaf=1</em>, <em>min_weight_fraction_leaf=0.0</em>, <em>max_features=None</em>, <em>random_state=None</em>, <em>max_leaf_nodes=None</em>, <em>output_transformer=None</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.feature_importances_">
+<tt class="descname">feature_importances_</tt><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.feature_importances_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the feature importances.</p>
+<p>The importance of a feature is computed as the (normalized) total
+reduction of the criterion brought by that feature.
+It is also known as the Gini importance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>feature_importances_</strong> : array, shape = [n_features]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.fit">
+<tt class="descname">fit</tt><big>(</big><em>X</em>, <em>y</em>, <em>sample_weight=None</em>, <em>check_input=True</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a decision tree from the training set (X, y).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The training input samples. Use <tt class="docutils literal"><span class="pre">dtype=np.float32</span></tt> for maximum
+efficiency.</p>
+</div></blockquote>
+<p><strong>y</strong> : array-like, shape = [n_samples] or [n_samples, n_outputs]</p>
+<blockquote>
+<div><p>The target values (class labels in classification, real numbers in
+regression). In the regression case, use <tt class="docutils literal"><span class="pre">dtype=np.float64</span></tt> and
+<tt class="docutils literal"><span class="pre">order='C'</span></tt> for maximum efficiency.</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array-like, shape = [n_samples] or None</p>
+<blockquote>
+<div><p>Sample weights. If None, then samples are equally weighted. Splits
+that would create child nodes with net zero or negative weight are
+ignored while searching for a split in each node. In the case of
+classification, splits are also ignored if they would result in any
+single class carrying a negative weight in either child node.</p>
+</div></blockquote>
+<p><strong>check_input</strong> : boolean, (default=True)</p>
+<blockquote>
+<div><p>Allow to bypass several input checking.
+Don&#8217;t use this parameter unless you know what you do.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> : object</p>
+<blockquote class="last">
+<div><p>Returns self.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.fit_transform">
+<tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to X and y with optional parameters fit_params
+and returns a transformed version of X.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array of shape [n_samples, n_features]</p>
+<blockquote>
+<div><p>Training set.</p>
+</div></blockquote>
+<p><strong>y</strong> : numpy array of shape [n_samples]</p>
+<blockquote>
+<div><p>Target values.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_new</strong> : numpy array of shape [n_samples, n_features_new]</p>
+<blockquote class="last">
+<div><p>Transformed array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.get_params">
+<tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>deep: boolean, optional</strong> :</p>
+<blockquote>
+<div><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> : mapping of string to any</p>
+<blockquote class="last">
+<div><p>Parameter names mapped to their values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.predict">
+<tt class="descname">predict</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class or regression value for X.</p>
+<p>For a classification model, the predicted class for each sample in X is
+returned. For a regression model, the predicted value based on X is
+returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The input samples.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : array of shape = [n_samples] or [n_samples, n_outputs]</p>
+<blockquote class="last">
+<div><p>The predicted classes, or the predict values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.predict_log_proba">
+<tt class="descname">predict_log_proba</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.predict_log_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class log-probabilities of the input samples X.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The input samples.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>p</strong> : array of shape = [n_samples, n_classes], or a list of n_outputs</p>
+<blockquote class="last">
+<div><p>such arrays if n_outputs &gt; 1.
+The class log-probabilities of the input samples. The order of the
+classes corresponds to that in the attribute <cite>classes_</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.predict_proba">
+<tt class="descname">predict_proba</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class probabilities of the input samples X.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The input samples.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>p</strong> : array of shape = [n_samples, n_classes], or a list of n_outputs</p>
+<blockquote class="last">
+<div><p>such arrays if n_outputs &gt; 1.
+The class probabilities of the input samples. The order of the
+classes corresponds to that in the attribute <cite>classes_</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.score">
+<tt class="descname">score</tt><big>(</big><em>X</em>, <em>y</em>, <em>sample_weight=None</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean accuracy on the given test data and labels.</p>
+<p>In multi-label classification, this is the subset accuracy
+which is a harsh metric since you require for each sample that
+each label set be correctly predicted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = (n_samples, n_features)</p>
+<blockquote>
+<div><p>Test samples.</p>
+</div></blockquote>
+<p><strong>y</strong> : array-like, shape = (n_samples) or (n_samples, n_outputs)</p>
+<blockquote>
+<div><p>True labels for X.</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array-like, shape = [n_samples], optional</p>
+<blockquote>
+<div><p>Sample weights.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>score</strong> : float</p>
+<blockquote class="last">
+<div><p>Mean accuracy of self.predict(X) wrt. y.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.set_params">
+<tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The former have parameters of the form
+<tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
+component of a nested object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self</strong> :</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.tree.DecisionTreeClassifier.transform">
+<tt class="descname">transform</tt><big>(</big><em>X</em>, <em>threshold=None</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reduce X to its most important features.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array or scipy sparse matrix of shape [n_samples, n_features]</p>
+<blockquote>
+<div><p>The input samples.</p>
+</div></blockquote>
+<p><strong>threshold</strong> : string, float or None, optional (default=None)</p>
+<blockquote>
+<div><p>The threshold value to use for feature selection. Features whose
+importance is greater or equal are kept while the others are
+discarded. If &#8220;median&#8221; (resp. &#8220;mean&#8221;), then the threshold value is
+the median (resp. the mean) of the feature importances. A scaling
+factor (e.g., &#8220;1.25*mean&#8221;) may also be used. If None and if
+available, the object attribute <tt class="docutils literal"><span class="pre">threshold</span></tt> is used. Otherwise,
+&#8220;mean&#8221; is used by default.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_r</strong> : array of shape [n_samples, n_selected_features]</p>
+<blockquote class="last">
+<div><p>The input samples with only the selected features.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Arnaud Joly.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
