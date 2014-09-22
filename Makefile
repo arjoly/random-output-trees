@@ -26,7 +26,9 @@ gh-pages:
 	git checkout master
 	make doc
 	git checkout gh-pages
+	echo 'Mv file'
 	mv -fv doc/_build/html/* .
+	echo 'Try to add file to git'
 	git add *.html *.js *.inv generated auto_examples
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	git push origin gh-pages
