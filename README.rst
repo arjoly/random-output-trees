@@ -9,12 +9,20 @@ If you use this package, please cite
 
   Joly, A., Geurts, P., & Wehenkel, L. (2014). Random forests with random
   projections of the output space for high dimensional multi-label
-  classification. 
-  
+  classification.
+
   ECML-PKDD 2014, Nancy, France
-  
+
 
 The paper is avaiblable at http://orbi.ulg.ac.be/handle/2268/172146.
+
+Documentation
+-------------
+
+The documentation is available at
+
+  http://arjoly.github.io/random-output-trees/
+
 
 Dependencies
 ------------
