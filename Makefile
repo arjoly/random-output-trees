@@ -27,8 +27,8 @@ gh-pages:
 	make doc
 	git checkout gh-pages
 	mv -fv doc/_build/html/* .
-	git add objects.inv searchindex.js
-	git add -A
-	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
-	git push origin gh-pages
-	git checkout master
+	# git add objects.inv searchindex.js
+	# git add -A
+	# git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
+	# git push origin gh-pages
+	# git checkout master
