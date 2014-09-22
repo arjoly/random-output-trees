@@ -23,11 +23,11 @@ view-doc: doc
 	open doc/_build/html/index.html
 
 gh-pages:
-    git checkout master
-    make doc
-    git checkout gh-pages
-    mv -fv doc/_build/html/* .
-    git add -A
-    git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
-    git push origin gh-pages
-    git checkout master
+	git checkout master
+	make doc
+	git checkout gh-pages
+	mv -fv doc/_build/html/* .
+	git add -A
+	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
+	git push origin gh-pages
+	git checkout master
