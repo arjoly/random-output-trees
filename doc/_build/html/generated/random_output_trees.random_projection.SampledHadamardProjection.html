@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>random_output_trees.random_projection.SampledHadamardProjection &mdash; random_output_trees dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
+    <link rel="up" title="References" href="../references.html" />
+    <link rel="next" title="random_output_trees.random_projection.SampledIdentityProjection" href="random_output_trees.random_projection.SampledIdentityProjection.html" />
+    <link rel="prev" title="random_output_trees.random_projection.AchlioptasRandomProjection" href="random_output_trees.random_projection.AchlioptasRandomProjection.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Randommized output forest</a>
+        <span class="navbar-text navbar-version pull-left"><b>dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="../references.html">References</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container content-container">
+  
+  <div class="section" id="random-output-trees-random-projection-sampledhadamardprojection">
+<h1>random_output_trees.random_projection.SampledHadamardProjection<a class="headerlink" href="#random-output-trees-random-projection-sampledhadamardprojection" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection">
+<em class="property">class </em><tt class="descclassname">random_output_trees.random_projection.</tt><tt class="descname">SampledHadamardProjection</tt><big>(</big><em>n_components='auto'</em>, <em>eps=0.1</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subsample Hadamard random projection</p>
+<p>The components of the random matrix are obtnained by subsampling the
+row and column of a sufficiently big Hadamard matrix.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>n_components</strong> : int or &#8216;auto&#8217;, optional (default = &#8216;auto&#8217;)</p>
+<blockquote>
+<div><p>Dimensionality of the target projection space.</p>
+<p>n_components can be automatically adjusted according to the
+number of samples in the dataset and the bound given by the
+Johnson-Lindenstrauss lemma. In that case the quality of the
+embedding is controlled by the <tt class="docutils literal"><span class="pre">eps</span></tt> parameter.</p>
+<p>It should be noted that Johnson-Lindenstrauss lemma can yield
+very conservative estimated of the required number of components
+as it makes no assumption on the structure of the dataset.</p>
+</div></blockquote>
+<p><strong>eps</strong> : strictly positive float, optional (default=0.1)</p>
+<blockquote>
+<div><p>Parameter to control the quality of the embedding according to
+the Johnson-Lindenstrauss lemma when n_components is set to
+&#8216;auto&#8217;.</p>
+<p>Smaller values lead to better embedding and higher number of
+dimensions (n_components) in the target projection space.</p>
+</div></blockquote>
+<p><strong>random_state</strong> : integer, RandomState instance or None (default=None)</p>
+<blockquote class="last">
+<div><p>Control the pseudo random number generator used to generate the
+matrix at fit time.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="37%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">n_component_</span></tt></td>
+<td>int</td>
+<td>Concrete number of components computed when n_components=&#8221;auto&#8221;.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">components_</span></tt></td>
+<td>numpy array of shape [n_components, n_features]</td>
+<td>Random matrix used for the projection.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.random_projection.SampledHadamardProjection.fit" title="random_output_trees.random_projection.SampledHadamardProjection.fit"><tt class="xref py py-obj docutils literal"><span class="pre">fit</span></tt></a>(X[,&nbsp;y])</td>
+<td>Generate a sparse random projection matrix</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.random_projection.SampledHadamardProjection.fit_transform" title="random_output_trees.random_projection.SampledHadamardProjection.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
+<td>Fit to data, then transform it.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.random_projection.SampledHadamardProjection.get_params" title="random_output_trees.random_projection.SampledHadamardProjection.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
+<td>Get parameters for this estimator.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.random_projection.SampledHadamardProjection.set_params" title="random_output_trees.random_projection.SampledHadamardProjection.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
+<td>Set the parameters of this estimator.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.random_projection.SampledHadamardProjection.transform" title="random_output_trees.random_projection.SampledHadamardProjection.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X[,&nbsp;y])</td>
+<td>Project the data by using matrix product with the random matrix</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>n_components='auto'</em>, <em>eps=0.1</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection.fit">
+<tt class="descname">fit</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a sparse random projection matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array or scipy.sparse of shape [n_samples, n_features]</p>
+<blockquote>
+<div><p>Training set: only the shape is used to find optimal random
+matrix dimensions based on the theory referenced in the
+afore mentioned papers.</p>
+</div></blockquote>
+<p><strong>y</strong> : is not used: placeholder to allow for usage in a Pipeline.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>self</strong> :</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection.fit_transform">
+<tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit to data, then transform it.</p>
+<p>Fits transformer to X and y with optional parameters fit_params
+and returns a transformed version of X.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array of shape [n_samples, n_features]</p>
+<blockquote>
+<div><p>Training set.</p>
+</div></blockquote>
+<p><strong>y</strong> : numpy array of shape [n_samples]</p>
+<blockquote>
+<div><p>Target values.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_new</strong> : numpy array of shape [n_samples, n_features_new]</p>
+<blockquote class="last">
+<div><p>Transformed array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection.get_params">
+<tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>deep: boolean, optional</strong> :</p>
+<blockquote>
+<div><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> : mapping of string to any</p>
+<blockquote class="last">
+<div><p>Parameter names mapped to their values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection.set_params">
+<tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The former have parameters of the form
+<tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
+component of a nested object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self</strong> :</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.random_projection.SampledHadamardProjection.transform">
+<tt class="descname">transform</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#random_output_trees.random_projection.SampledHadamardProjection.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Project the data by using matrix product with the random matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array or scipy.sparse of shape [n_samples, n_features]</p>
+<blockquote>
+<div><p>The input data to project into a smaller dimensional space.</p>
+</div></blockquote>
+<p><strong>y</strong> : is not used: placeholder to allow for usage in a Pipeline.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>X_new</strong> : numpy array or scipy sparse of shape [n_samples, n_components]</p>
+<blockquote class="last">
+<div><p>Projected array.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Arnaud Joly.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
