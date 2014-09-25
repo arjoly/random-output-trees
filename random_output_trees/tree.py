@@ -482,6 +482,9 @@ class DecisionTreeClassifier(BaseDecisionTree, ClassifierMixin):
         total reduction of the criterion brought by that feature.  It is also
         known as the Gini importance [4]_.
 
+    output_transformer : scikit-learn transformer or None (default),
+        Transformer applied on the output of each tree of the forest.
+
     See also
     --------
     DecisionTreeRegressor
@@ -670,6 +673,9 @@ class DecisionTreeRegressor(BaseDecisionTree, RegressorMixin):
         If RandomState instance, random_state is the random number generator;
         If None, the random number generator is the RandomState instance used
         by `np.random`.
+
+    output_transformer : scikit-learn transformer or None (default),
+        Transformer applied on the output of each tree of the forest.
 
     Attributes
     ----------
