@@ -1,3 +1,8 @@
+'''
+This module provides dimensionality reduction methods based on random
+projection.
+
+'''
 # Authors: Arnaud Joly <arnaud.v.joly@gmail.com>
 #
 # License: BSD 3 clause

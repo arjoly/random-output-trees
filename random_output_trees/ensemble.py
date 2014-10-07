@@ -1,3 +1,7 @@
+'''
+This module provides ensemble estimators which work transformed output-space.
+
+'''
 # Authors: Arnaud Joly <arnaud.v.joly@gmail.com>
 #
 # License: BSD 3 clause

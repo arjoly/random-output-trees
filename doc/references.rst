@@ -8,8 +8,6 @@ This is the class and function reference of the package.
 :mod:`random_output_trees.ensemble`: Ensemble
 ---------------------------------------------
 
-This module provides ensemble estimators which work transformed output-space.
-
 .. automodule:: random_output_trees.ensemble
    :no-members:
    :no-inherited-members:
@@ -29,10 +27,7 @@ This module provides ensemble estimators which work transformed output-space.
 :mod:`random_output_trees.datasets`: Datasets
 ---------------------------------------------
 
-This module provides dataset loaders and fetchers.
-
-
-.. automodule:: random_output_trees.ensemble
+.. automodule:: random_output_trees.datasets
    :no-members:
    :no-inherited-members:
 
@@ -48,9 +43,6 @@ This module provides dataset loaders and fetchers.
 
 :mod:`random_output_trees.random_projection`: Random projection
 ---------------------------------------------------------------
-
-This module provides dimensionality reduction methods based on random
-projection.
 
 .. automodule:: random_output_trees.random_projection
    :no-members:
@@ -71,8 +63,6 @@ projection.
 :mod:`random_output_trees.transformer`: Transformer
 ---------------------------------------------------
 
-This module provides general purpose meta-transformer.
-
 .. automodule:: random_output_trees.transformer
    :no-members:
    :no-inherited-members:
@@ -89,7 +79,6 @@ This module provides general purpose meta-transformer.
 :mod:`random_output_trees.tree`: Tree
 -------------------------------------
 
-This module provide tree-based estimators which worked transform output-space.
 
 .. automodule:: random_output_trees.tree
    :no-members:

@@ -1,6 +1,10 @@
 """
 This module gathers tree-based methods, including decision, regression and
 randomized trees. Single and multi-output problems are both handled.
+
+This module also provides tree-based estimators which worked transform
+output-space.
+
 """
 
 # Authors: Gilles Louppe <g.louppe@gmail.com>

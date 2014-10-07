@@ -1,3 +1,8 @@
+'''
+This module provides general purpose meta-transformer.
+
+'''
+
 # Authors: Arnaud Joly <arnaud.v.joly@gmail.com>
 #
 # License: BSD 3 clause
