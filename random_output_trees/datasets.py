@@ -81,15 +81,14 @@ def _fetch_drug_protein(data_home=None):
 def fetch_drug_interaction(data_home=None):
     """Fetch the drug-interaction dataset
 
-    Constant features were removed
+    Constant features were removed.
 
     ========================== ====================================
     Domain                         drug-protein interaction network
     Features                                   Biological (see [1])
     output                                      interaction network
     Drug matrix                    (sample, features) = (1862, 660)
-    Target or protein matrix       (sample, features) = (1554, 876)
-    newtork  interaction matrix      (drug, protein) = (1862, 1554)
+    Newtork interaction matrix     (samples, labels) = (1862, 1554)
     =========================== ===================================
 
 
@@ -136,3 +135,57 @@ def fetch_drug_interaction(data_home=None):
     return Bunch(data=data, target=target, feature_names=feature_names,
                  target_names=target_names)
 
+
+def fetch_protein_interaction(data_home=None):
+    """Fetch the protein-interaction dataset
+
+    Constant features were removed
+
+    ========================== ====================================
+    Domain                         drug-protein interaction network
+    Features                                   Biological (see [1])
+    output                                      interaction network
+    Drug matrix                    (sample, features) = (1554, 876)
+    Newtork interaction matrix     (samples, labels) = (1554, 1862)
+    =========================== ===================================
+
+    Parameters
+    ----------
+    data_home: optional, default: None
+        Specify another download and cache folder for the data sets. By default
+        all scikit learn data is stored in '~/scikit_learn_data' subfolders.
+
+    Returns
+    -------
+    data : Bunch
+        Dictionary-like object, the interesting attributes are:
+        'data', the data to learn, 'target', the classification labels and
+        'feature_names', the original names of the dataset columns.
+
+    References
+    ----------
+    .. [1] Yamanishi, Y., Pauwels, E., Saigo, H., & Stoven, V. (2011).
+           Extracting sets of chemical substructures and protein domains
+           governing drug-target interactions. Journal of chemical information
+           and modeling, 51(5), 1183-1194.
+
+    """
+    data_home = _fetch_drug_protein(data_home=data_home)
+
+    protein_fname = os.path.join(data_home, "target_repmat.txt")
+    data = np.loadtxt(protein_fname, dtype=object, skiprows=1)
+    data = data[:, 1:] # skip id column
+    data = data.astype(np.float)
+    mask_constant = np.var(data, axis=0) != 0.
+    data = data[:, mask_constant] # remove constant columns
+
+    with open(protein_fname, 'r') as fhandle:
+        feature_names = fhandle.readline().split("\t")
+        feature_names = np.array(feature_names)[mask_constant].tolist()
+
+    interaction_fname = os.path.join(data_home, "inter_admat.txt")
+    target = np.loadtxt(interaction_fname, dtype=float, skiprows=1)
+    target = target[:, 1:] # skip id column
+    target = target.T
+
+    return Bunch(data=data, target=target, feature_names=feature_names)
