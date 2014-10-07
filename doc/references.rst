@@ -39,8 +39,8 @@ This module provide ensemble estimators which work transformed output-space.
    :toctree: generated/
    :template: function.rst
 
-   dataset.fetch_drug_interaction
-   dataset.fetch_protein_interaction
+   datasets.fetch_drug_interaction
+   datasets.fetch_protein_interaction
 
 
 :mod:`random_output_trees.random_projection`: Dimensionality reduction methods based on random projection
