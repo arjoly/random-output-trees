@@ -12,8 +12,8 @@ This module provides ensemble estimators which work transformed output-space.
 from sklearn.ensemble.forest import ForestClassifier
 from sklearn.ensemble.forest import ForestRegressor
 
-from .tree import DecisionTreeClassifier
-from .tree import DecisionTreeRegressor
+from ..tree import DecisionTreeClassifier
+from ..tree import DecisionTreeRegressor
 
 __all__ = [
     "RandomForestClassifier",
