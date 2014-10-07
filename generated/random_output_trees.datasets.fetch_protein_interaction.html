@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>random_output_trees.datasets.fetch_protein_interaction &mdash; random_output_trees dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
+    <link rel="up" title="References" href="../references.html" />
+    <link rel="next" title="random_output_trees.random_projection.RademacherRandomProjection" href="random_output_trees.random_projection.RademacherRandomProjection.html" />
+    <link rel="prev" title="random_output_trees.datasets.fetch_drug_interaction" href="random_output_trees.datasets.fetch_drug_interaction.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Randommized output forest</a>
+        <span class="navbar-text navbar-version pull-left"><b>dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="../references.html">References</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container content-container">
+  
+  <div class="section" id="random-output-trees-datasets-fetch-protein-interaction">
+<h1>random_output_trees.datasets.fetch_protein_interaction<a class="headerlink" href="#random-output-trees-datasets-fetch-protein-interaction" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="random_output_trees.datasets.fetch_protein_interaction">
+<tt class="descclassname">random_output_trees.datasets.</tt><tt class="descname">fetch_protein_interaction</tt><big>(</big><em>data_home=None</em><big>)</big><a class="headerlink" href="#random_output_trees.datasets.fetch_protein_interaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch the protein-interaction dataset</p>
+<p>Constant features were removed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>data_home: optional, default: None</strong> :</p>
+<blockquote>
+<div><p>Specify another download and cache folder for the data sets. By default
+all scikit learn data is stored in &#8216;~/scikit_learn_data&#8217; subfolders.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>data</strong> : Bunch</p>
+<blockquote class="last">
+<div><p>Dictionary-like object, the interesting attributes are:
+&#8216;data&#8217;, the data to learn, &#8216;target&#8217;, the classification labels and
+&#8216;feature_names&#8217;, the original names of the dataset columns.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R2]</a></td><td>Yamanishi, Y., Pauwels, E., Saigo, H., &amp; Stoven, V. (2011).
+Extracting sets of chemical substructures and protein domains
+governing drug-target interactions. Journal of chemical information
+and modeling, 51(5), 1183-1194.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Arnaud Joly.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
