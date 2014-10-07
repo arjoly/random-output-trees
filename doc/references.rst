@@ -26,8 +26,8 @@ This module provide ensemble estimators which work transformed output-space.
    ensemble.ExtraTreesRegressor
 
 
-:mod:`random_output_trees.dataset`: Provide dataset loader and fetcher
-----------------------------------------------------------------------
+:mod:`random_output_trees.datasets`: Provide dataset loader and fetcher
+-----------------------------------------------------------------------
 
 .. automodule:: random_output_trees.ensemble
    :no-members:
