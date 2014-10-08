@@ -83,7 +83,7 @@ def fetch_drug_interaction(data_home=None):
 
     Constant features were removed.
 
-    ========================== ====================================
+    =========================== ===================================
     Domain                         drug-protein interaction network
     Features                                   Biological (see [1])
     output                                      interaction network
@@ -141,7 +141,7 @@ def fetch_protein_interaction(data_home=None):
 
     Constant features were removed
 
-    ========================== ====================================
+    =========================== ===================================
     Domain                         drug-protein interaction network
     Features                                   Biological (see [1])
     output                                      interaction network
