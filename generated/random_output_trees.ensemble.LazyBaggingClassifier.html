@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>random_output_trees.ensemble.LazyBaggingClassifier &mdash; random_output_trees dev documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'dev',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
+    <link rel="up" title="References" href="../references.html" />
+    <link rel="next" title="random_output_trees.ensemble.LazyBaggingRegressor" href="random_output_trees.ensemble.LazyBaggingRegressor.html" />
+    <link rel="prev" title="random_output_trees.ensemble.ExtraTreesRegressor" href="random_output_trees.ensemble.ExtraTreesRegressor.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Randommized output forest</a>
+        <span class="navbar-text navbar-version pull-left"><b>dev</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            <li class="divider-vertical"></li>
+            
+                <li><a href="../references.html">References</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container content-container">
+  
+  <div class="section" id="random-output-trees-ensemble-lazybaggingclassifier">
+<h1>random_output_trees.ensemble.LazyBaggingClassifier<a class="headerlink" href="#random-output-trees-ensemble-lazybaggingclassifier" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier">
+<em class="property">class </em><tt class="descclassname">random_output_trees.ensemble.</tt><tt class="descname">LazyBaggingClassifier</tt><big>(</big><em>base_estimator=None</em>, <em>n_estimators=10</em>, <em>max_samples=1.0</em>, <em>max_features=1.0</em>, <em>bootstrap=True</em>, <em>bootstrap_features=False</em>, <em>random_state=None</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>A lazy bagging classifier.</p>
+<p>Everything is done lazily, models are built at prediction time and are not
+kept in memory. Since the models is thrown away, this allows to highly
+reduce the memory consumption and allows to build very large ensemble.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>base_estimator</strong> : object or None, optional (default=None)</p>
+<blockquote>
+<div><p>The base estimator to fit on random subsets of the dataset.
+If None, then the base estimator is a decision tree.</p>
+</div></blockquote>
+<p><strong>n_estimators</strong> : int, optional (default=10)</p>
+<blockquote>
+<div><p>The number of base estimators in the ensemble.</p>
+</div></blockquote>
+<p><strong>max_samples</strong> : int or float, optional (default=1.0)</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>The number of samples to draw from X to train each base estimator.</dt>
+<dd><ul class="first last simple">
+<li>If int, then draw <cite>max_samples</cite> samples.</li>
+<li>If float, then draw <cite>max_samples * X.shape[0]</cite> samples.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>max_features</strong> : int or float, optional (default=1.0)</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>The number of features to draw from X to train each base estimator.</dt>
+<dd><ul class="first last simple">
+<li>If int, then draw <cite>max_features</cite> features.</li>
+<li>If float, then draw <cite>max_features * X.shape[1]</cite> features.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>bootstrap</strong> : boolean, optional (default=True)</p>
+<blockquote>
+<div><p>Whether samples are drawn with replacement.</p>
+</div></blockquote>
+<p><strong>bootstrap_features</strong> : boolean, optional (default=False)</p>
+<blockquote>
+<div><p>Whether features are drawn with replacement.</p>
+</div></blockquote>
+<p><strong>random_state</strong> : int, RandomState instance or None, optional (default=None)</p>
+<blockquote>
+<div><p>If int, random_state is the seed used by the random number generator;
+If RandomState instance, random_state is the random number generator;
+If None, the random number generator is the RandomState instance used
+by <cite>np.random</cite>.</p>
+</div></blockquote>
+<p><strong>verbose</strong> : int, optional (default=0)</p>
+<blockquote class="last">
+<div><p>Controls the verbosity of the building process.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils citation" frame="void" id="r5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R5]</a></td><td>L. Breiman, &#8220;Pasting small votes for classification in large
+databases and on-line&#8221;, Machine Learning, 36(1), 85-103, 1999.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[R6]</a></td><td>L. Breiman, &#8220;Bagging predictors&#8221;, Machine Learning, 24(2), 123-140,
+1996.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[R7]</a></td><td>T. Ho, &#8220;The random subspace method for constructing decision
+forests&#8221;, Pattern Analysis and Machine Intelligence, 20(8), 832-844,
+1998.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="r8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[R8]</a></td><td>G. Louppe and P. Geurts, &#8220;Ensembles on Random Patches&#8221;, Machine
+Learning and Knowledge Discovery in Databases, 346-361, 2012.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="33%" />
+<col width="53%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a href="#id5"><span class="problematic" id="id6">classes_</span></a></td>
+<td>array of shape = [n_classes]</td>
+<td>The classes labels.</td>
+</tr>
+<tr class="row-even"><td><a href="#id7"><span class="problematic" id="id8">n_classes_</span></a></td>
+<td>int or list</td>
+<td>The number of classes.</td>
+</tr>
+<tr class="row-odd"><td><a href="#id9"><span class="problematic" id="id10">n_features_</span></a></td>
+<td>int,</td>
+<td>Number of features of the fitted input matrix</td>
+</tr>
+<tr class="row-even"><td><a href="#id11"><span class="problematic" id="id12">n_outputs_</span></a></td>
+<td>int,</td>
+<td>Number of outputs of the fitted ouput matrix</td>
+</tr>
+<tr class="row-odd"><td><a href="#id13"><span class="problematic" id="id14">random_seed_</span></a></td>
+<td>int,</td>
+<td>Seed of the number generator</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.decision_function" title="random_output_trees.ensemble.LazyBaggingClassifier.decision_function"><tt class="xref py py-obj docutils literal"><span class="pre">decision_function</span></tt></a>(X)</td>
+<td>Average of the decision functions of the base classifiers.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.fit" title="random_output_trees.ensemble.LazyBaggingClassifier.fit"><tt class="xref py py-obj docutils literal"><span class="pre">fit</span></tt></a>(X,&nbsp;y[,&nbsp;sample_weight])</td>
+<td>Build a lazy a bagging ensemble of estimators from the training set</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.get_params" title="random_output_trees.ensemble.LazyBaggingClassifier.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
+<td>Get parameters for this estimator.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.predict" title="random_output_trees.ensemble.LazyBaggingClassifier.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(X)</td>
+<td>Predict class for X.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.predict_log_proba" title="random_output_trees.ensemble.LazyBaggingClassifier.predict_log_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_log_proba</span></tt></a>(X)</td>
+<td>Predict class log-probabilities for X.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.predict_proba" title="random_output_trees.ensemble.LazyBaggingClassifier.predict_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_proba</span></tt></a>(X)</td>
+<td>Predict class probabilities for X.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.score" title="random_output_trees.ensemble.LazyBaggingClassifier.score"><tt class="xref py py-obj docutils literal"><span class="pre">score</span></tt></a>(X,&nbsp;y[,&nbsp;sample_weight])</td>
+<td>Returns the mean accuracy on the given test data and labels.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#random_output_trees.ensemble.LazyBaggingClassifier.set_params" title="random_output_trees.ensemble.LazyBaggingClassifier.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
+<td>Set the parameters of this estimator.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>base_estimator=None</em>, <em>n_estimators=10</em>, <em>max_samples=1.0</em>, <em>max_features=1.0</em>, <em>bootstrap=True</em>, <em>bootstrap_features=False</em>, <em>random_state=None</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.decision_function">
+<tt class="descname">decision_function</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.decision_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Average of the decision functions of the base classifiers.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix} of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The training input samples. Sparse matrices are accepted only if
+they are supported by the base estimator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>score</strong> : array, shape = [n_samples, k] or list of array</p>
+<blockquote class="last">
+<div><p>The decision function of the input samples. The columns correspond
+to the classes in sorted order, as they appear in the attribute
+<tt class="docutils literal"><span class="pre">classes_</span></tt>. Regression and binary classification are special
+cases with <tt class="docutils literal"><span class="pre">k</span> <span class="pre">==</span> <span class="pre">1</span></tt>, otherwise <tt class="docutils literal"><span class="pre">k==n_classes</span></tt>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.fit">
+<tt class="descname">fit</tt><big>(</big><em>X</em>, <em>y</em>, <em>sample_weight=None</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a lazy a bagging ensemble of estimators from the training set</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix} of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The training input samples. Sparse matrices are accepted only if
+they are supported by the base estimator.</p>
+</div></blockquote>
+<p><strong>y</strong> : array-like, shape = [n_samples]</p>
+<blockquote>
+<div><p>The target values (class labels in classification, real numbers in
+regression).</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array-like, shape = [n_samples] or None</p>
+<blockquote>
+<div><p>Sample weights. If None, then samples are equally weighted.
+Note that this is supported only if the base estimator supports
+sample weighting.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>self</strong> : object</p>
+<blockquote class="last">
+<div><p>Returns self.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.get_params">
+<tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>deep: boolean, optional</strong> :</p>
+<blockquote>
+<div><p>If True, will return the parameters for this estimator and
+contained subobjects that are estimators.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>params</strong> : mapping of string to any</p>
+<blockquote class="last">
+<div><p>Parameter names mapped to their values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.predict">
+<tt class="descname">predict</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class for X.</p>
+<p>The predicted class of an input sample is computed as the class with
+the highest mean predicted probability. If base estimators do not
+implement a <tt class="docutils literal"><span class="pre">predict_proba</span></tt> method, then it resorts to voting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix} of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The training input samples. Sparse matrices are accepted only if
+they are supported by the base estimator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>y</strong> : array of shape = [n_samples, n_outputs]</p>
+<blockquote class="last">
+<div><p>The predicted classes.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.predict_log_proba">
+<tt class="descname">predict_log_proba</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.predict_log_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class log-probabilities for X.</p>
+<p>The predicted class log-probabilities of an input sample is computed as
+the log of the mean predicted class probabilities of the trees in the
+forest.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The input samples.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>p</strong> : array of shape = [n_samples, n_classes], or a list of n_outputs</p>
+<blockquote class="last">
+<div><p>such arrays if n_outputs &gt; 1.
+The class probabilities of the input samples. The order of the
+classes corresponds to that in the attribute <cite>classes_</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.predict_proba">
+<tt class="descname">predict_proba</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict class probabilities for X.</p>
+<p>The predicted class probabilities of an input sample is computed as
+the mean predicted class probabilities of the base estimators in the
+ensemble. If base estimators do not implement a <tt class="docutils literal"><span class="pre">predict_proba</span></tt>
+method, then it resorts to voting and the predicted class probabilities
+of a an input sample represents the proportion of estimators predicting
+each class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix} of shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>The training input samples. Sparse matrices are accepted only if
+they are supported by the base estimator.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>p</strong> : array of shape = [n_samples, n_classes] or list of array</p>
+<blockquote class="last">
+<div><p>The class probabilities of the input samples. The order of the
+classes corresponds to that in the attribute <cite>classes_</cite>.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.score">
+<tt class="descname">score</tt><big>(</big><em>X</em>, <em>y</em>, <em>sample_weight=None</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean accuracy on the given test data and labels.</p>
+<p>In multi-label classification, this is the subset accuracy
+which is a harsh metric since you require for each sample that
+each label set be correctly predicted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = (n_samples, n_features)</p>
+<blockquote>
+<div><p>Test samples.</p>
+</div></blockquote>
+<p><strong>y</strong> : array-like, shape = (n_samples) or (n_samples, n_outputs)</p>
+<blockquote>
+<div><p>True labels for X.</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array-like, shape = [n_samples], optional</p>
+<blockquote>
+<div><p>Sample weights.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>score</strong> : float</p>
+<blockquote class="last">
+<div><p>Mean accuracy of self.predict(X) wrt. y.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="random_output_trees.ensemble.LazyBaggingClassifier.set_params">
+<tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.LazyBaggingClassifier.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<p>The method works on simple estimators as well as on nested objects
+(such as pipelines). The former have parameters of the form
+<tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
+component of a nested object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self</strong> :</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014, Arnaud Joly.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
