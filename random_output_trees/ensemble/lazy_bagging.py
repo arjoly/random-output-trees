@@ -521,7 +521,7 @@ class LazyBaggingClassifier(BaseLazyBagging, ClassifierMixin):
 
 
 class LazyBaggingRegressor(BaseLazyBagging, RegressorMixin):
-    """A lazy Bagging regressor.
+    """A lazy bagging regressor.
 
     Everything is done lazily, models are built at prediction time and are not
     kept in memory. Since the models is thrown away, this allows to highly
