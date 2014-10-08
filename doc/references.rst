@@ -18,11 +18,12 @@ This is the class and function reference of the package.
    :toctree: generated/
    :template: class.rst
 
-   ensemble.RandomForestClassifier
-   ensemble.RandomForestRegressor
    ensemble.ExtraTreesClassifier
    ensemble.ExtraTreesRegressor
-
+   ensemble.LazyBaggingClassifier
+   ensemble.LazyBaggingRegressor
+   ensemble.RandomForestClassifier
+   ensemble.RandomForestRegressor
 
 :mod:`random_output_trees.datasets`: Datasets
 ---------------------------------------------

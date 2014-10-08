@@ -462,6 +462,7 @@ def test_multioutput():
     est.fit(X_train, y_train)
     assert_almost_equal(est.score(X_train, y_train), 1.)
 
+
 if __name__ == "__main__":
     import nose
     nose.runmodule()
