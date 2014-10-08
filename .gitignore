@@ -61,3 +61,5 @@ doc/_build/
 doc/auto_examples/
 doc/generated/
 .buildinfo
+doc/modules/generated
+_sources
