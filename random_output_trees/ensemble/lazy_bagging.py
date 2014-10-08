@@ -231,7 +231,7 @@ class LazyBaggingClassifier(BaseLazyBagging, ClassifierMixin):
     """A lazy bagging classifier.
 
     Everything is done lazily, models are built at prediction time and are not
-    kept in memory. Since the models is not thrown away, this allows to highly
+    kept in memory. Since the models is thrown away, this allows to highly
     reduce the memory consumption and allows to build very large ensemble.
 
     Parameters
@@ -524,7 +524,7 @@ class LazyBaggingRegressor(BaseLazyBagging, RegressorMixin):
     """A lazy Bagging regressor.
 
     Everything is done lazily, models are built at prediction time and are not
-    kept in memory. Since the models is not thrown away, this allows to highly
+    kept in memory. Since the models is thrown away, this allows to highly
     reduce the memory consumption and allows to build very large ensemble.
 
     Parameters
