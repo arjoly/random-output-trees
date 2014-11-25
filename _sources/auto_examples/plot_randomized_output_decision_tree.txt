@@ -39,6 +39,6 @@ number of projections.
 .. literalinclude:: plot_randomized_output_decision_tree.py
     :lines: 15-
 
-**Total running time of the example:**  184.58 seconds
-( 3 minutes  4.58 seconds)
+**Total running time of the example:**  170.00 seconds
+( 2 minutes  50.00 seconds)
     
