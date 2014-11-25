@@ -25,11 +25,12 @@ view-doc: doc
 gh-pages:
 	git checkout master
 	make doc
+	rm -rf ../random-output-trees-doc
+	cp -a doc/_build/html ../random-output-trees-doc
 	git checkout gh-pages
-	echo 'Mv file'
-	rsync -a doc/_build/html/ ./
+	cp -a ../random-output-trees-doc/* .
 	echo 'Add new file to git'
-	git add *.html *.js *.inv generated auto_examples _static _templates _sources _images _downloads stable
+	git add `ls ../random-output-trees-doc`
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	git push origin gh-pages
 	git checkout master
