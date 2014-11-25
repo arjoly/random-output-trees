@@ -1,0 +1,7 @@
+random_output_trees.datasets.fetch_drug_interaction
+===================================================
+
+.. currentmodule:: random_output_trees.datasets
+
+.. autofunction:: fetch_drug_interaction
+

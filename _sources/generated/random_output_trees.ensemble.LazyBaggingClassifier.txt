@@ -1,0 +1,11 @@
+random_output_trees.ensemble.LazyBaggingClassifier
+==================================================
+
+.. currentmodule:: random_output_trees.ensemble
+
+.. autoclass:: LazyBaggingClassifier
+
+   
+   .. automethod:: __init__
+   
+

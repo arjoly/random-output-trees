@@ -1,0 +1,36 @@
+
+
+.. _example_plot_variance_preservation.py:
+
+
+==============================================
+Variance is preserved under random projections
+==============================================
+
+If a random projection matrix satisfies the Johson-Lindenstrauss, then
+the variance computed on the randomly projected output space is equal to
+the variance on the original output space up to an epsilon factor.
+
+This is an illustration of Theorem 1 from the paper
+
+    Joly, A., Geurts, P., & Wehenkel, L. (2014). Random forests with
+    random projections of the output space for high dimensional multi-label
+    classification. ECML-PKDD 2014, Nancy, France
+
+
+
+
+.. image:: images/plot_variance_preservation_001.png
+    :align: center
+
+
+
+
+**Python source code:** :download:`plot_variance_preservation.py <plot_variance_preservation.py>`
+
+.. literalinclude:: plot_variance_preservation.py
+    :lines: 17-
+
+**Total running time of the example:**  3.53 seconds
+( 0 minutes  3.53 seconds)
+    

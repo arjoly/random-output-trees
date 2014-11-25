@@ -1,0 +1,44 @@
+
+
+.. _example_plot_randomized_output_decision_tree.py:
+
+
+=========================================
+Growing tree on a randomized output space
+=========================================
+
+The bottleneck of random forest on multi-label and multi-output regression
+tasks with many outputs is the computation of the impurity measure at
+each tree node for each possible split.
+
+Growing a tree on lower dimensional random output subspace allow to decrease
+computing time while having the same or improved performance with a sufficient
+number of projections.
+
+
+
+
+.. rst-class:: horizontal
+
+
+    *
+
+      .. image:: images/plot_randomized_output_decision_tree_001.png
+            :scale: 47
+
+    *
+
+      .. image:: images/plot_randomized_output_decision_tree_002.png
+            :scale: 47
+
+
+
+
+**Python source code:** :download:`plot_randomized_output_decision_tree.py <plot_randomized_output_decision_tree.py>`
+
+.. literalinclude:: plot_randomized_output_decision_tree.py
+    :lines: 15-
+
+**Total running time of the example:**  171.42 seconds
+( 2 minutes  51.42 seconds)
+    
