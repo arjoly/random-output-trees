@@ -29,7 +29,7 @@ gh-pages:
 	echo 'Mv file'
 	rsync -a doc/_build/html/ ./
 	echo 'Add new file to git'
-	git add *.html *.js *.inv generated auto_examples
+	git add *.html *.js *.inv generated auto_examples _static _templates _sources _images _download stable
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	git push origin gh-pages
 	git checkout master
