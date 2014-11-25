@@ -33,7 +33,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
     <link rel="up" title="References" href="../references.html" />
-    <link rel="next" title="random_output_trees.random_projection.RademacherRandomProjection" href="random_output_trees.random_projection.RademacherRandomProjection.html" />
+    <link rel="next" title="random_output_trees.ensemble.LazyBaggingClassifier" href="random_output_trees.ensemble.LazyBaggingClassifier.html" />
     <link rel="prev" title="random_output_trees.ensemble.ExtraTreesClassifier" href="random_output_trees.ensemble.ExtraTreesClassifier.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -225,10 +225,10 @@ new forest.</p>
 </dl>
 </div>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r2" rules="none">
+<table class="docutils citation" frame="void" id="r4" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R2]</a></td><td>P. Geurts, D. Ernst., and L. Wehenkel, &#8220;Extremely randomized trees&#8221;,
+<tr><td class="label"><a class="fn-backref" href="#id1">[R4]</a></td><td>P. Geurts, D. Ernst., and L. Wehenkel, &#8220;Extremely randomized trees&#8221;,
 Machine Learning, 63(1), 3-42, 2006.</td></tr>
 </tbody>
 </table>
@@ -311,9 +311,11 @@ Machine Learning, 63(1), 3-42, 2006.</td></tr>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like or sparse matrix, shape = [n_samples, n_features]</p>
 <blockquote>
-<div><p>Input data.</p>
+<div><p>The input samples. Internally, it will be converted to
+<tt class="docutils literal"><span class="pre">dtype=np.float32</span></tt> and if a sparse matrix is provided
+to a sparse <tt class="docutils literal"><span class="pre">csr_matrix</span></tt>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -353,9 +355,11 @@ return the index of the leaf x ends up in.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like of shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like or sparse matrix of shape = [n_samples, n_features]</p>
 <blockquote>
-<div><p>The training input samples.</p>
+<div><p>The training input samples. Internally, it will be converted to
+<tt class="docutils literal"><span class="pre">dtype=np.float32</span></tt> and if a sparse matrix is provided
+to a sparse <tt class="docutils literal"><span class="pre">csc_matrix</span></tt>.</p>
 </div></blockquote>
 <p><strong>y</strong> : array-like, shape = [n_samples] or [n_samples, n_outputs]</p>
 <blockquote>
@@ -447,9 +451,11 @@ mean predicted regression targets of the trees in the forest.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like of shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array-like or sparse matrix of shape = [n_samples, n_features]</p>
 <blockquote>
-<div><p>The input samples.</p>
+<div><p>The input samples. Internally, it will be converted to
+<tt class="docutils literal"><span class="pre">dtype=np.float32</span></tt> and if a sparse matrix is provided
+to a sparse <tt class="docutils literal"><span class="pre">csr_matrix</span></tt>.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -521,6 +527,9 @@ component of a nested object.</p>
 <dt id="random_output_trees.ensemble.ExtraTreesRegressor.transform">
 <tt class="descname">transform</tt><big>(</big><em>X</em>, <em>threshold=None</em><big>)</big><a class="headerlink" href="#random_output_trees.ensemble.ExtraTreesRegressor.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reduce X to its most important features.</p>
+<p>Uses <tt class="docutils literal"><span class="pre">coef_</span></tt> or <tt class="docutils literal"><span class="pre">feature_importances_</span></tt> to determine the most
+important features.  For models with a <tt class="docutils literal"><span class="pre">coef_</span></tt> for each class, the
+absolute sum over the classes is used.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

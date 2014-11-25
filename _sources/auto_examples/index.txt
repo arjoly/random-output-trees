@@ -28,6 +28,64 @@ General-purpose and introductory examples.
 
 
 
+
+.. raw:: html
+
+
+    <div class="thumbnailContainer">
+        <div class="docstringWrapper">
+
+
+.. figure:: ./images/thumb/plot_variance_preservation.png
+   :target: ./plot_variance_preservation.html
+
+   :ref:`example_plot_variance_preservation.py`
+
+
+.. raw:: html
+
+
+    <p>If a random projection matrix satisfies the Johson-Lindenstrauss, then the variance computed on...
+    </p></div>
+    </div>
+
+
+
+.. toctree::
+   :hidden:
+
+   ./plot_variance_preservation
+
+
+
+.. raw:: html
+
+
+    <div class="thumbnailContainer">
+        <div class="docstringWrapper">
+
+
+.. figure:: ./images/thumb/plot_randomized_output_decision_tree.png
+   :target: ./plot_randomized_output_decision_tree.html
+
+   :ref:`example_plot_randomized_output_decision_tree.py`
+
+
+.. raw:: html
+
+
+    <p>The bottleneck of random forest on multi-label and multi-output regression tasks with many outp...
+    </p></div>
+    </div>
+
+
+
+.. toctree::
+   :hidden:
+
+   ./plot_randomized_output_decision_tree
+
+
 .. raw:: html
 
     <div class="clearer"></div>

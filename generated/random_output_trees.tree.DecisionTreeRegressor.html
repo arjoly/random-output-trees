@@ -33,7 +33,6 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
     <link rel="up" title="References" href="../references.html" />
-    <link rel="next" title="random_output_trees.ensemble.RandomForestClassifier" href="random_output_trees.ensemble.RandomForestClassifier.html" />
     <link rel="prev" title="random_output_trees.tree.DecisionTreeClassifier" href="random_output_trees.tree.DecisionTreeClassifier.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -168,11 +167,15 @@ If None then unlimited number of leaf nodes.
 If not None then <tt class="docutils literal"><span class="pre">max_depth</span></tt> will be ignored.</p>
 </div></blockquote>
 <p><strong>random_state</strong> : int, RandomState instance or None, optional (default=None)</p>
-<blockquote class="last">
+<blockquote>
 <div><p>If int, random_state is the seed used by the random number generator;
 If RandomState instance, random_state is the random number generator;
 If None, the random number generator is the RandomState instance used
 by <cite>np.random</cite>.</p>
+</div></blockquote>
+<p><strong>output_transformer</strong> : scikit-learn transformer or None (default),</p>
+<blockquote class="last">
+<div><p>Transformer applied on the output of each tree of the forest.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -183,30 +186,30 @@ by <cite>np.random</cite>.</p>
 <p class="last"><a class="reference internal" href="random_output_trees.tree.DecisionTreeClassifier.html#random_output_trees.tree.DecisionTreeClassifier" title="random_output_trees.tree.DecisionTreeClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">DecisionTreeClassifier</span></tt></a></p>
 </div>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r9" rules="none">
+<table class="docutils citation" frame="void" id="r19" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R9]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Decision_tree_learning">http://en.wikipedia.org/wiki/Decision_tree_learning</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[R19]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Decision_tree_learning">http://en.wikipedia.org/wiki/Decision_tree_learning</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r10" rules="none">
+<table class="docutils citation" frame="void" id="r20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[R10]</a></td><td>L. Breiman, J. Friedman, R. Olshen, and C. Stone, &#8220;Classification
+<tr><td class="label"><a class="fn-backref" href="#id2">[R20]</a></td><td>L. Breiman, J. Friedman, R. Olshen, and C. Stone, &#8220;Classification
 and Regression Trees&#8221;, Wadsworth, Belmont, CA, 1984.</td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r11" rules="none">
+<table class="docutils citation" frame="void" id="r21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[R11]</a></td><td>T. Hastie, R. Tibshirani and J. Friedman. &#8220;Elements of Statistical
+<tr><td class="label"><a class="fn-backref" href="#id3">[R21]</a></td><td>T. Hastie, R. Tibshirani and J. Friedman. &#8220;Elements of Statistical
 Learning&#8221;, Springer, 2009.</td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r12" rules="none">
+<table class="docutils citation" frame="void" id="r22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[R12]</a></td><td>L. Breiman, and A. Cutler, &#8220;Random Forests&#8221;,
+<tr><td class="label"><a class="fn-backref" href="#id4">[R22]</a></td><td>L. Breiman, and A. Cutler, &#8220;Random Forests&#8221;,
 <a class="reference external" href="http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm">http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm</a></td></tr>
 </tbody>
 </table>
@@ -488,6 +491,9 @@ component of a nested object.</p>
 <dt id="random_output_trees.tree.DecisionTreeRegressor.transform">
 <tt class="descname">transform</tt><big>(</big><em>X</em>, <em>threshold=None</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeRegressor.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reduce X to its most important features.</p>
+<p>Uses <tt class="docutils literal"><span class="pre">coef_</span></tt> or <tt class="docutils literal"><span class="pre">feature_importances_</span></tt> to determine the most
+important features.  For models with a <tt class="docutils literal"><span class="pre">coef_</span></tt> for each class, the
+absolute sum over the classes is used.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

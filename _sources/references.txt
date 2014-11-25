@@ -5,29 +5,8 @@ References
 This is the class and function reference of the package.
 
 
-:mod:`random_output_trees.tree`: Provide tree-based estimator
-------------------------------------------------------------------
-
-This module provide tree-based estimators which worked transform output-space.
-
-.. automodule:: random_output_trees.tree
-   :no-members:
-   :no-inherited-members:
-
-.. currentmodule:: random_output_trees
-
-.. autosummary::
-   :toctree: generated/
-   :template: class.rst
-
-   tree.DecisionTreeClassifier
-   tree.DecisionTreeRegressor
-
-
-:mod:`random_output_trees.ensemble`: Provide ensemble based estimator
---------------------------------------------------------------------------
-
-This module provide ensemble estimators which work transformed output-space.
+:mod:`random_output_trees.ensemble`: Ensemble
+---------------------------------------------
 
 .. automodule:: random_output_trees.ensemble
    :no-members:
@@ -39,14 +18,32 @@ This module provide ensemble estimators which work transformed output-space.
    :toctree: generated/
    :template: class.rst
 
-   ensemble.RandomForestClassifier
-   ensemble.RandomForestRegressor
    ensemble.ExtraTreesClassifier
    ensemble.ExtraTreesRegressor
+   ensemble.LazyBaggingClassifier
+   ensemble.LazyBaggingRegressor
+   ensemble.RandomForestClassifier
+   ensemble.RandomForestRegressor
+
+:mod:`random_output_trees.datasets`: Datasets
+---------------------------------------------
+
+.. automodule:: random_output_trees.datasets
+   :no-members:
+   :no-inherited-members:
+
+.. currentmodule:: random_output_trees
+
+.. autosummary::
+   :toctree: generated/
+   :template: function.rst
+
+   datasets.fetch_drug_interaction
+   datasets.fetch_protein_interaction
 
 
-:mod:`random_output_trees.random_projection`: Dimensionality reduction methods based on random projection
---------------------------------------------------------------------------------------------------------------
+:mod:`random_output_trees.random_projection`: Random projection
+---------------------------------------------------------------
 
 .. automodule:: random_output_trees.random_projection
    :no-members:
@@ -64,8 +61,8 @@ This module provide ensemble estimators which work transformed output-space.
    random_projection.SampledIdentityProjection
 
 
-:mod:`random_output_trees.transformer`: Provides general purpose meta-transformer
---------------------------------------------------------------------------------------
+:mod:`random_output_trees.transformer`: Transformer
+---------------------------------------------------
 
 .. automodule:: random_output_trees.transformer
    :no-members:
@@ -78,3 +75,21 @@ This module provide ensemble estimators which work transformed output-space.
    :template: class.rst
 
    transformer.FixedStateTransformer
+
+
+:mod:`random_output_trees.tree`: Tree
+-------------------------------------
+
+
+.. automodule:: random_output_trees.tree
+   :no-members:
+   :no-inherited-members:
+
+.. currentmodule:: random_output_trees
+
+.. autosummary::
+   :toctree: generated/
+   :template: class.rst
+
+   tree.DecisionTreeClassifier
+   tree.DecisionTreeRegressor
