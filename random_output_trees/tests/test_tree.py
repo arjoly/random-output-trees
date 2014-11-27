@@ -79,7 +79,7 @@ def test_identity_output_transformer():
         est_transf.fit(X_train, y_train)
         y_pred_transformed = est_transf.predict(X_test)
         assert_almost_equal(y_pred_origin, y_pred_transformed, decimal=5,
-                            err_msg="failed with {}".format(name))
+                            err_msg="failed with {0}".format(name))
 
 
 def test_pca_output_transformer():
@@ -94,7 +94,7 @@ def test_pca_output_transformer():
         est_transf.fit(X_train, y_train)
         y_pred_transformed = est_transf.predict(X_test)
         assert_equal(y_pred_transformed.shape, y_test.shape,
-                     msg="failed with {}".format(name))
+                     msg="failed with {0}".format(name))
 
 
 def test_importances_variance_equal_mse():

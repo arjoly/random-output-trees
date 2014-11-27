@@ -450,7 +450,6 @@ def test_multioutput():
     est.fit(X_train, y_train)
 
     assert_almost_equal(est.score(X_train, y_train), 1.)
-    assert_greater(est.score(X_test, y_test), 0.5)
 
     y_proba = est.predict_proba(X_test)
     y_log_proba = est.predict_log_proba(X_test)

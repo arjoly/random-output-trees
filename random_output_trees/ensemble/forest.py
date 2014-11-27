@@ -5,8 +5,8 @@
 # This file is adapted from scikit-learn to handle randomized output space
 
 
-from sklearn.ensemble.forest import ForestClassifier
-from sklearn.ensemble.forest import ForestRegressor
+from ._sklearn_forest import ForestClassifier
+from ._sklearn_forest import ForestRegressor
 
 from ..tree import DecisionTreeClassifier
 from ..tree import DecisionTreeRegressor

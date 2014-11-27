@@ -22,7 +22,6 @@ from sklearn.utils.testing import assert_array_equal
 from sklearn.utils.testing import assert_equal
 from sklearn.utils.testing import assert_false, assert_true
 from sklearn.utils.testing import assert_less, assert_greater
-from sklearn.utils.testing import assert_greater_equal
 from sklearn.utils.testing import assert_raises
 from sklearn.utils.testing import assert_warns
 from sklearn.utils.testing import ignore_warnings
@@ -539,7 +538,10 @@ def check_min_weight_fraction_leaf(name, X, y):
             node_weights = np.bincount(out, weights=weights)
             # drop inner nodes
             leaf_weights = node_weights[node_weights != 0]
-            assert_greater_equal(
+
+            # Strictly this should be assert_greater_equal, but this was
+            # drop to avoid backport
+            assert_greater(
                 np.min(leaf_weights),
                 total_weight * est.min_weight_fraction_leaf,
                 "Failed with {0} "

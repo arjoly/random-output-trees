@@ -5,8 +5,6 @@ from abc import ABCMeta, abstractmethod
 
 import numpy as np
 
-from sklearn.base import clone
-from sklearn.base import BaseEstimator
 from sklearn.base import ClassifierMixin
 from sklearn.base import RegressorMixin
 from sklearn.ensemble.base import BaseEnsemble
@@ -14,11 +12,12 @@ from sklearn.externals.six import with_metaclass
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.utils.validation import check_random_state
-from sklearn.utils.validation import check_X_y
-from sklearn.utils.validation import check_array
 from sklearn.utils.validation import column_or_1d
-from sklearn.utils.validation import has_fit_parameter
 from sklearn.utils.random import sample_without_replacement
+
+from .._utils import check_array
+from .._utils import check_X_y
+from .._utils import has_fit_parameter
 
 
 MAX_INT = np.iinfo(np.int32).max

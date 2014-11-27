@@ -27,7 +27,8 @@ from sklearn.base import BaseEstimator, ClassifierMixin, RegressorMixin, clone
 from sklearn.externals import six
 from sklearn.externals.six.moves import xrange
 from sklearn.feature_selection.from_model import _LearntSelectorMixin
-from sklearn.utils import check_array, check_random_state
+from sklearn.utils.validation import check_random_state
+from ._utils import check_array
 
 __all__ = ["DecisionTreeClassifier",
            "DecisionTreeRegressor"]
