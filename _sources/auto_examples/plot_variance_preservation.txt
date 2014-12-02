@@ -31,6 +31,6 @@ This is an illustration of Theorem 1 from the paper
 .. literalinclude:: plot_variance_preservation.py
     :lines: 17-
 
-**Total running time of the example:**  2.45 seconds
-( 0 minutes  2.45 seconds)
+**Total running time of the example:**  6.77 seconds
+( 0 minutes  6.77 seconds)
     
