@@ -29,6 +29,7 @@ If you use this package, please cite
 
 The paper is avaiblable at http://orbi.ulg.ac.be/handle/2268/172146.
 
+
 Documentation
 -------------
 
