@@ -1,13 +1,12 @@
 Random output trees
 ===================
 
-.. image:: https://secure.travis-ci.org/arjoly/andom-output-trees.png?branch=master
-   :target: https://secure.travis-ci.org/arjoly/random-output-trees
+.. image:: https://travis-ci.org/arjoly/random-output-trees.svg?branch=master
+   :target: https://travis-ci.org/arjoly/random-output-trees
    :alt: Build status
 
-.. image:: https://coveralls.io/repos/arjoly/andom-output-trees/badge.png?branch=master
-   :target: https://coveralls.io/r/arjoly/random-output-trees
-   :alt: Coverage status
+.. image:: https://coveralls.io/repos/arjoly/random-output-trees/badge.png?branch=master
+   :target: https://coveralls.io/r/arjoly/random-output-trees?branch=master
 
 .. image:: https://landscape.io/github/arjoly/random-output-trees/master/landscape.svg
    :target: https://landscape.io/github/arjoly/random-output-trees/master
