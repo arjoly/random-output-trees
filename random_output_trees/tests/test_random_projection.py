@@ -104,15 +104,6 @@ def test_correct_RandomProjection_dimensions_embedding():
         assert_raises(ValueError, rp.transform, data[:, 1:5])
 
 
-def test_warning_n_components_greater_than_n_features():
-    n_features = 20
-    data, _ = make_sparse_random_data(5, n_features, int(n_features / 4))
-
-    for name, RandomProjection in RANDOM_PROJECTION.items():
-        assert_warns(UserWarning,
-                     RandomProjection(n_components=n_features + 1).fit, data)
-
-
 def test_works_with_sparse_data():
     n_features = 20
     data, _ = make_sparse_random_data(5, n_features, int(n_features / 4))

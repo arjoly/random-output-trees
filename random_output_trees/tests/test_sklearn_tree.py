@@ -17,7 +17,6 @@ from sklearn.utils.testing import assert_equal
 from sklearn.utils.testing import assert_in
 from sklearn.utils.testing import assert_raises
 from sklearn.utils.testing import assert_greater
-from sklearn.utils.testing import assert_greater_equal
 from sklearn.utils.testing import assert_less
 from sklearn.utils.testing import assert_true
 from sklearn.utils.testing import raises
@@ -25,8 +24,6 @@ from sklearn.utils.validation import check_random_state
 
 from random_output_trees.tree import DecisionTreeClassifier
 from random_output_trees.tree import DecisionTreeRegressor
-# from sklearn.tree import ExtraTreeClassifier
-# from sklearn.tree import ExtraTreeRegressor
 
 from sklearn import tree
 from sklearn import datasets
@@ -489,7 +486,10 @@ def test_min_weight_fraction_leaf():
         node_weights = np.bincount(out, weights=weights)
         # drop inner nodes
         leaf_weights = node_weights[node_weights != 0]
-        assert_greater_equal(
+
+        # Strictly this should be assert_greater_equal, but this was
+        # drop to avoid backport
+        assert_greater(
             np.min(leaf_weights),
             total_weight * est.min_weight_fraction_leaf,
             "Failed with {0} "

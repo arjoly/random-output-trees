@@ -7,7 +7,7 @@ from sklearn.utils.testing import assert_equal
 
 from random_output_trees.datasets import fetch_drug_interaction
 from random_output_trees.datasets import fetch_protein_interaction
-
+from random_output_trees._utils import skipped
 
 tmpdir = None
 
@@ -24,7 +24,7 @@ def teardown_tmpdata():
     if tmpdir is not None:
         shutil.rmtree(tmpdir)
 
-
+@skipped
 @with_setup(setup_tmpdata, teardown_tmpdata)
 def test_fetch_drug_protein():
     dataset = fetch_drug_interaction(tmpdir)
@@ -38,3 +38,4 @@ def test_fetch_drug_protein():
     assert_equal(dataset.data.shape, (1554, 876))
     assert_equal(dataset.target.shape, (1554, 1862))
     assert_equal(len(dataset.feature_names), 876)
+

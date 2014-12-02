@@ -1,6 +1,19 @@
 Random output trees
 ===================
 
+.. image:: https://secure.travis-ci.org/arjoly/andom-output-trees.png?branch=master
+   :target: https://secure.travis-ci.org/arjoly/random-output-trees
+   :alt: Build status
+
+.. image:: https://coveralls.io/repos/arjoly/andom-output-trees/badge.png?branch=master
+   :target: https://coveralls.io/r/arjoly/random-output-trees
+   :alt: Coverage status
+
+.. image:: https://landscape.io/github/arjoly/random-output-trees/master/landscape.svg
+   :target: https://landscape.io/github/arjoly/random-output-trees/master
+   :alt: Code Health
+
+
 Random output trees is a python package to grow decision tree ensemble on
 randomized output space. The core tree implementation is based on scikit-learn
 0.15.2. All provided estimators and transformers are scikit-learn compatible.

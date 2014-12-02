@@ -14,13 +14,13 @@ DESCRIPTION = "High dimension output tree classifier and regressor"
 LONG_DESCRIPTION = open('README.rst').read()
 MAINTAINER = 'Arnaud Joly'
 MAINTAINER_EMAIL = 'arnaud.v.joly@gmail.com'
-URL = 'TODO'
-LICENSE = 'TODO' #TODO switch to new bsd later
-DOWNLOAD_URL = 'TODO'
+URL = 'http://arjoly.github.io/random-output-trees/'
+LICENSE = 'BSD'
+DOWNLOAD_URL = 'https://github.com/arjoly/random-output-trees/archive/master.zip'
 CLASSIFIERS = [
     'Intended Audience :: Science/Research',
     'Intended Audience :: Developers',
-    # 'License :: OSI Approved', # TODO
+    'License :: OSI Approved',
     'Programming Language :: C',
     'Programming Language :: Python',
     'Topic :: Software Development',
