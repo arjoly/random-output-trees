@@ -41,7 +41,6 @@ def _fetch_drug_protein(data_home=None):
 
     base_url = "http://cbio.ensmp.fr/~yyamanishi/substr-domain/"
 
-
     # check if this data set has been already downloaded
     data_home = get_data_home(data_home)
     data_home = os.path.join(data_home, 'drug-protein')
@@ -116,9 +115,9 @@ def fetch_drug_interaction(data_home=None):
 
     drug_fname = os.path.join(data_home, "drug_repmat.txt")
     data = np.loadtxt(drug_fname, dtype=float, skiprows=1)
-    data = data[:, 1:] # skip id column
+    data = data[:, 1:]  # skip id column
     mask_constant = np.var(data, axis=0) != 0.
-    data = data[:, mask_constant] # remove constant columns
+    data = data[:, mask_constant]  # remove constant columns
 
     with open(drug_fname, 'r') as fhandle:
         feature_names = fhandle.readline().split("\t")
@@ -126,7 +125,7 @@ def fetch_drug_interaction(data_home=None):
 
     interaction_fname = os.path.join(data_home, "inter_admat.txt")
     target = np.loadtxt(interaction_fname, dtype=float, skiprows=1)
-    target = target[:, 1:] # skip id column
+    target = target[:, 1:]  # skip id column
     with open(interaction_fname, 'r') as fhandle:
         target_names = fhandle.readline().split("\t")
 
@@ -171,11 +170,11 @@ def fetch_protein_interaction(data_home=None):
     data_home = _fetch_drug_protein(data_home=data_home)
 
     protein_fname = os.path.join(data_home, "target_repmat.txt")
-    data = np.loadtxt(protein_fname, dtype=object, skiprows=1)
-    data = data[:, 1:] # skip id column
-    data = data.astype(np.float)
+    data = np.loadtxt(protein_fname, dtype=float, skiprows=1,
+                      usecols=range(1, 877))  # skip id column
+
     mask_constant = np.var(data, axis=0) != 0.
-    data = data[:, mask_constant] # remove constant columns
+    data = data[:, mask_constant]   # remove constant columns
 
     with open(protein_fname, 'r') as fhandle:
         feature_names = fhandle.readline().split("\t")
@@ -183,7 +182,7 @@ def fetch_protein_interaction(data_home=None):
 
     interaction_fname = os.path.join(data_home, "inter_admat.txt")
     target = np.loadtxt(interaction_fname, dtype=float, skiprows=1)
-    target = target[:, 1:] # skip id column
+    target = target[:, 1:]  # skip id column
     target = target.T
 
     return Bunch(data=data, target=target, feature_names=feature_names)

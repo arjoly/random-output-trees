@@ -38,4 +38,3 @@ def test_fetch_drug_protein():
     assert_equal(dataset.data.shape, (1554, 876))
     assert_equal(dataset.target.shape, (1554, 1862))
     assert_equal(len(dataset.feature_names), 876)
-
