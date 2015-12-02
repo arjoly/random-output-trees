@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.1.0/lumen/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/lumen/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -29,7 +29,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="random_output_trees dev documentation" href="../index.html" />
     <link rel="up" title="References" href="../references.html" />
@@ -59,7 +59,6 @@
 
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
-            <li class="divider-vertical"></li>
             
                 <li><a href="../references.html">References</a></li>
                 <li><a href="../auto_examples/index.html">Examples</a></li>
@@ -298,8 +297,8 @@ output (for multi-output problems).</td>
 <tr class="row-even"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.set_params" title="random_output_trees.tree.DecisionTreeClassifier.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
 <td>Set the parameters of this estimator.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.transform" title="random_output_trees.tree.DecisionTreeClassifier.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X[,&nbsp;threshold])</td>
-<td>Reduce X to its most important features.</td>
+<tr class="row-odd"><td><a class="reference internal" href="#random_output_trees.tree.DecisionTreeClassifier.transform" title="random_output_trees.tree.DecisionTreeClassifier.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(*args,&nbsp;**kwargs)</td>
+<td>DEPRECATED: Support to use estimators as feature selectors will be removed in version 0.19.</td>
 </tr>
 </tbody>
 </table>
@@ -558,28 +557,33 @@ component of a nested object.</p>
 
 <dl class="method">
 <dt id="random_output_trees.tree.DecisionTreeClassifier.transform">
-<tt class="descname">transform</tt><big>(</big><em>X</em>, <em>threshold=None</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reduce X to its most important features.</p>
-<p>Uses <tt class="docutils literal"><span class="pre">coef_</span></tt> or <tt class="docutils literal"><span class="pre">feature_importances_</span></tt> to determine the most
+<tt class="descname">transform</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#random_output_trees.tree.DecisionTreeClassifier.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED: Support to use estimators as feature selectors will be removed in version 0.19. Use SelectFromModel instead.</p>
+<p>Reduce X to its most important features.</p>
+<blockquote>
+<div>Uses <tt class="docutils literal"><span class="pre">coef_</span></tt> or <tt class="docutils literal"><span class="pre">feature_importances_</span></tt> to determine the most
 important features.  For models with a <tt class="docutils literal"><span class="pre">coef_</span></tt> for each class, the
-absolute sum over the classes is used.</p>
+absolute sum over the classes is used.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>X</strong> : array or scipy sparse matrix of shape [n_samples, n_features]</p>
 <blockquote>
+<div><blockquote>
 <div><p>The input samples.</p>
 </div></blockquote>
-<p><strong>threshold</strong> : string, float or None, optional (default=None)</p>
-<blockquote>
-<div><p>The threshold value to use for feature selection. Features whose
+<dl class="docutils">
+<dt>threshold <span class="classifier-delimiter">:</span> <span class="classifier">string, float or None, optional (default=None)</span></dt>
+<dd><p class="first last">The threshold value to use for feature selection. Features whose
 importance is greater or equal are kept while the others are
 discarded. If &#8220;median&#8221; (resp. &#8220;mean&#8221;), then the threshold value is
 the median (resp. the mean) of the feature importances. A scaling
 factor (e.g., &#8220;1.25*mean&#8221;) may also be used. If None and if
 available, the object attribute <tt class="docutils literal"><span class="pre">threshold</span></tt> is used. Otherwise,
 &#8220;mean&#8221; is used by default.</p>
+</dd>
+</dl>
 </div></blockquote>
 </td>
 </tr>
