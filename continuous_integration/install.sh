@@ -32,9 +32,10 @@ conda update --yes conda
 # Configure the conda environment and put it in the path using the
 # provided versions
 conda create -n testenv --yes python=$PYTHON_VERSION pip nose \
-    numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION scikit-learn
+    numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION
 source activate testenv
 
+pip install scikit-learn
 
 
 python --version
