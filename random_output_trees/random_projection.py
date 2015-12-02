@@ -241,7 +241,8 @@ class SampledHadamardProjection(BaseRandomProjection):
                                           random_state=self.random_state)
 
 
-def subsampled_identity_matrix(n_components, n_features, random_state=None):
+def subsampled_identity_matrix(n_components, n_features, random_state=None,
+                               with_replacement=True):
     """Sub-sampled identity matrix to have shape n_components and n_features
 
     Parameters
@@ -255,6 +256,9 @@ def subsampled_identity_matrix(n_components, n_features, random_state=None):
     random_state : int, RandomState instance or None (default=None)
         Control the pseudo random number generator used to generate the
         matrix at fit time.
+
+    with_replacement : bool,
+        Whether or not drawing components with replacements.
 
     Returns
     -------
@@ -274,7 +278,14 @@ def subsampled_identity_matrix(n_components, n_features, random_state=None):
 
     components = sparse.dia_matrix((np.ones(n_features), [0]),
                                    shape=(n_features, n_features)).tocsr()
-    components = components[rng.randint(n_features, size=(n_components,))]
+    if with_replacement:
+        mask = rng.randint(n_features, size=(n_components,))
+
+    else:
+        mask = sample_without_replacement(n_features, n_components,
+                                          random_state=rng)
+
+    components = components[mask]
     return components * np.sqrt(1.0 * n_features / n_components)
 
 
@@ -323,13 +334,16 @@ class SampledIdentityProjection(BaseRandomProjection):
 
     """
     def __init__(self, n_components="auto", eps=0.1, random_state=None,
-                 dense_output=False):
+                 dense_output=False, with_replacement=True):
         super(SampledIdentityProjection, self).__init__(
             n_components=n_components,
             eps=eps,
             dense_output=dense_output,
             random_state=random_state)
 
+        self.with_replacement = with_replacement
+
     def _make_random_matrix(self, n_components, n_features):
         return subsampled_identity_matrix(n_components, n_features,
-                                          self.random_state)
+                                          self.random_state,
+                                          with_replacement=self.with_replacement)

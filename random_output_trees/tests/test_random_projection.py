@@ -1,3 +1,4 @@
+from functools import partial
 
 import numpy as np
 from scipy.sparse import issparse, coo_matrix, csr_matrix
@@ -23,6 +24,8 @@ RANDOM_PROJECTION = {
     "AchlioptasRandomProjection": AchlioptasRandomProjection,
     "SampledHadamardProjection": SampledHadamardProjection,
     "SampledIdentityProjection": SampledIdentityProjection,
+    "SampledIdentityProjection_without_replacement":
+    partial(SampledIdentityProjection, with_replacement=False)
 }
 
 all_random_matrix = {
@@ -159,3 +162,9 @@ def test_basic_property_of_random_matrix():
             check_zero_mean_and_unit_norm(random_matrix)
         check_approximate_isometry(random_matrix)
 
+
+def test_subsampled_identity_matrix_without_repl():
+    random_array = subsampled_identity_matrix(100, 1000, random_state=0,
+                                              with_replacement=False)
+    assert_array_almost_equal(random_array.toarray().sum(axis=1),
+                              3.162278 * np.ones(100))
