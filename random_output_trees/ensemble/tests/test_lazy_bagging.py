@@ -24,7 +24,7 @@ from sklearn.utils.testing import assert_almost_equal
 from sklearn.base import clone
 from sklearn.dummy import DummyClassifier, DummyRegressor
 from sklearn.grid_search import GridSearchCV, ParameterGrid
-from sklearn.linear_model import Perceptron, LogisticRegression
+from sklearn.linear_model import Perceptron
 from sklearn.neighbors import KNeighborsClassifier, KNeighborsRegressor
 from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.svm import SVC, SVR
@@ -295,7 +295,7 @@ def test_probability():
         print("stop")
 
         # Degenerate case, where some classes are missing
-        ensemble = LazyBaggingClassifier(base_estimator=LogisticRegression(),
+        ensemble = LazyBaggingClassifier(base_estimator=DecisionTreeClassifier(),
                        		             random_state=rng,
                             	         max_samples=5).fit(X_train, y_train)
 
