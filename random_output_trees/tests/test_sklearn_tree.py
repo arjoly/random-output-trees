@@ -28,8 +28,6 @@ from random_output_trees.tree import DecisionTreeRegressor
 from sklearn import tree
 from sklearn import datasets
 
-from sklearn.preprocessing._weights import _balance_weights
-
 
 CLF_CRITERIONS = ("gini", "entropy")
 REG_CRITERIONS = ("mse", )
@@ -602,17 +600,6 @@ def test_classes_shape():
         assert_array_equal(clf.classes_, [[-1, 1], [-2, 2]])
 
 
-def test_unbalanced_iris():
-    """Check class rebalancing."""
-    unbalanced_X = iris.data[:125]
-    unbalanced_y = iris.target[:125]
-    sample_weight = _balance_weights(unbalanced_y)
-
-    for name, TreeClassifier in CLF_TREES.items():
-        clf = TreeClassifier(random_state=0)
-        clf.fit(unbalanced_X, unbalanced_y, sample_weight=sample_weight)
-        assert_almost_equal(clf.predict(unbalanced_X), unbalanced_y)
-
 
 def test_memory_layout():
     """Check that it works no matter the memory layout"""
@@ -796,8 +783,3 @@ def test_big_input():
         clf.fit(X, [0, 1, 0, 1])
     except ValueError as e:
         assert_in("float32", str(e))
-
-
-def test_memoryerror():
-    from sklearn.tree._tree import _realloc_test
-    assert_raises(MemoryError, _realloc_test)
