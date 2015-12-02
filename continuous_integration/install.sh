@@ -32,14 +32,14 @@ conda update --yes conda
 # Configure the conda environment and put it in the path using the
 # provided versions
 conda create -n testenv --yes python=$PYTHON_VERSION pip nose \
-    numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION scikit-learn=$SCIKIT_LEARN_VERSION
+    numpy=$NUMPY_VERSION scipy=$SCIPY_VERSION
 source activate testenv
-
-pip install scikit-learn
-
 
 python --version
 python -c "import numpy; print('numpy %s' % numpy.__version__)"
 python -c "import scipy; print('scipy %s' % scipy.__version__)"
+
+pip install scikit-learn
+
 python -c "import sklearn; print('sklearn %s' % sklearn.__version__)"
 python setup.py build_ext --inplace
